@@ -30,18 +30,21 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.applet.AudioClip;
 
+
 /**
  *
  * @author Kevin
  */
 public class Usuariocomdisco extends JFrame {
 
+    
     AudioClip sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Bebe Rexha - In The Name Of Love (Official Video) (online-audio-converter.com).wav"));
     AudioClip sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Dua Lipa - Scared To Be Lonely (Official Video) (online-audio-converter.com).wav"));
     AudioClip sonido3 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/P!nk - What About Us (Shaun Barron Bootleg) (online-audio-converter.com).wav"));
     AudioClip sonido4 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Jason Derulo - Swalla (feat. Nicki Minaj Ty Dolla $ign) (Official Music Video) (online-audio-converter.com).wav"));
     AudioClip sonido5 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/La Tierra Canta - Barak (letra)_3P6KiEY_zA0_youtube (online-audio-converter.com).wav"));
-
+    public static String usuario;
+    public static String correouser;
     public String[] leer() {
         ArchivoUsuario lo = new ArchivoUsuario();
         lo.crearlogin();
@@ -92,6 +95,8 @@ public class Usuariocomdisco extends JFrame {
                 String c = usucontra.getText();
                 if (u.equals(usu) & c.equals(contra)) {
                     JOptionPane.showMessageDialog(null, "Login Correcto!");
+                    usuario = u;
+                    correouser = c;
                     Instancias insta = new Instancias();
                     insta.modocompra();
                 } else {
@@ -152,12 +157,17 @@ public class Usuariocomdisco extends JFrame {
                         modelo.addElement(lista1[0]);
                         existe = true;
 
+                    } else {
+                        existe = false;
+                        
                     }
 
                 }
 
                 bf2.close();
-
+                if (existe == false) {
+                    JOptionPane.showMessageDialog(null, "No se encuentra el Disco en ese tipo de Parametro!");
+                }
             } catch (IOException e) {
                 System.err.println("No se encontro el archivo" + e);
             }

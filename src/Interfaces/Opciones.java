@@ -16,6 +16,7 @@ public class Opciones extends javax.swing.JDialog {
     /**
      * Creates new form Catalogos
      */
+    Instancias insta = new Instancias();
     public Opciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -70,12 +71,27 @@ public class Opciones extends javax.swing.JDialog {
 
         jRadioButton3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jRadioButton3.setText("Lista de Compras");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         jRadioButton4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jRadioButton4.setText("Lista de Pre Ordenes");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         jRadioButton5.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jRadioButton5.setText("Reportes");
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,14 +142,14 @@ public class Opciones extends javax.swing.JDialog {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         this.setVisible(false);
-        Instancias insta = new Instancias();
+        
         insta.catalogomusica();
         
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         this.setVisible(false);
-        Instancias insta = new Instancias();
+        
         insta.catalogopelicula();
         
     }//GEN-LAST:event_jRadioButton2ActionPerformed
@@ -143,6 +159,20 @@ public class Opciones extends javax.swing.JDialog {
         new Menu().setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        this.setVisible(true);
+        insta.listacompras();
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        this.setVisible(false);
+        insta.preordenes();
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
 
     /**
      * @param args the command line arguments

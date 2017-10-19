@@ -1,3 +1,5 @@
 Los Bellos;Hellen Matamoros;Cristiana;La Tierra Canta - Barak;4000;2
-Tiesto;Karla;Merengue;La Tierra Canta - Barak;2000;3
-Martin;kevin;Salsa;Martin Garrix  Bebe Rexha;2000;4
+Martin;kevin;Salsa;Martin Garrix  Bebe Rexha;2000;2
+Disco1;Kevin;Cumbia;Martin Garrix Dua Lipa;1000;5
+Disco3;Carlos;Electronica;P!nk-What About Us;2000;5
+Disco5;Kike;Merengue;Jason Derulo - Swalla;3000;2

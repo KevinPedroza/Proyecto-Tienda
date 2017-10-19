@@ -6,6 +6,8 @@
 package Archivos;
 
 import Herencia.UsuarioRegister;
+import static Interfaces.CompraDisco.jlistacompradisco;
+import static Interfaces.CompraPelicula.jlistapelicula;
 import static Interfaces.Registro.formucedula;
 import static Interfaces.Registro.formucontra;
 import static Interfaces.Registro.formucorreo;
@@ -135,6 +137,83 @@ public class ArchivoUsuario {
             formucedula.setText("");
             formucontra.setText("");
             formucorreo.setText("");
+        } catch (MessagingException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void enviarcorreocmpra(String email) {
+        to = email;
+        String subject = "Compra Exitosa!";
+
+        try {
+
+            Properties props = new Properties();
+
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.setProperty("mail.smtp.starttls.enable", "true");
+            props.setProperty("mail.smtp.port", "587");
+            props.setProperty("mail.smtp.user", "kevinlarios2343@gmail.com");
+            props.setProperty("mail.smtp.auth", "true");
+
+            Session session = Session.getDefaultInstance(props, null);
+            BodyPart texto = new MimeBodyPart();
+            texto.setText("Se ha completado Exitosamente su Compra de: " + jlistacompradisco.getSelectedValue());
+
+            MimeMultipart m = new MimeMultipart();
+            m.addBodyPart(texto);
+
+            MimeMessage mensaje = new MimeMessage(session);
+            mensaje.setFrom(new InternetAddress(user));
+            mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            mensaje.setSubject(subject);
+            mensaje.setContent(m);
+
+            Transport t = session.getTransport("smtp");
+            t.connect(user, password);
+            t.sendMessage(mensaje, mensaje.getAllRecipients());
+            t.close();
+            JOptionPane.showMessageDialog(null, "Se ha completado la compra Correctamente!");
+
+        } catch (MessagingException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void enviarcorreocmprapeli(String email) {
+        to = email;
+        String subject = "Compra Exitosa!";
+        try {
+
+            Properties props = new Properties();
+
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.setProperty("mail.smtp.starttls.enable", "true");
+            props.setProperty("mail.smtp.port", "587");
+            props.setProperty("mail.smtp.user", "kevinlarios2343@gmail.com");
+            props.setProperty("mail.smtp.auth", "true");
+
+            Session session = Session.getDefaultInstance(props, null);
+            BodyPart texto = new MimeBodyPart();
+            texto.setText("Se ha completado Exitosamente su Compra de: " + jlistapelicula.getSelectedValue());
+
+            MimeMultipart m = new MimeMultipart();
+            m.addBodyPart(texto);
+
+            MimeMessage mensaje = new MimeMessage(session);
+            mensaje.setFrom(new InternetAddress(user));
+            mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            mensaje.setSubject(subject);
+            mensaje.setContent(m);
+
+            Transport t = session.getTransport("smtp");
+            t.connect(user, password);
+            t.sendMessage(mensaje, mensaje.getAllRecipients());
+            t.close();
+            JOptionPane.showMessageDialog(null, "Se ha completado la compra Correctamente!");
+
         } catch (MessagingException e) {
             System.out.println(e);
         }

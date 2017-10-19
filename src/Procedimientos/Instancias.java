@@ -14,12 +14,16 @@ import Interfaces.EliminarDisco;
 import Interfaces.EliminarPelicula;
 import Interfaces.LeerDisco;
 import Interfaces.LeerPelicula;
+import Interfaces.ListaCompras;
+import Interfaces.ListaPreOrden;
 import Interfaces.Menu;
 import Interfaces.ModificarDisco;
 import Interfaces.ModificarPeliculas;
 import Interfaces.Opciones;
 import Interfaces.OpcionesCatalogoMusica;
 import Interfaces.OpcionesCatalogoPelicula;
+import Interfaces.ProcesoCompraDisco;
+import Interfaces.ProcesoCompraPelicula;
 import Interfaces.Registro;
 import Interfaces.Usuario;
 import Interfaces.UsuarioCatalogo;
@@ -67,7 +71,7 @@ public class Instancias extends JFrame {
         disco.setVisible(true);
         
     }
-
+    
     public void eliminardisco() {
         EliminarDisco disco = new EliminarDisco(this, true);
         disco.pack();
@@ -88,49 +92,81 @@ public class Instancias extends JFrame {
         
     }
     
-    public void modificarpeli(){
-    ModificarPeliculas peli = new ModificarPeliculas(this,true);
-    peli.pack();
-    peli.setVisible(true);
-    
+    public void modificarpeli() {
+        ModificarPeliculas peli = new ModificarPeliculas(this, true);
+        peli.pack();
+        peli.setVisible(true);
+        
     }
     
-    public void eliminarpeli(){
-    EliminarPelicula peli = new EliminarPelicula(this,true);
-    peli.pack();
-    peli.setVisible(true);
-     
+    public void eliminarpeli() {
+        EliminarPelicula peli = new EliminarPelicula(this, true);
+        peli.pack();
+        peli.setVisible(true);
+        
     }
-    public void loginusuario(){
-    Usuario user = new Usuario(this,true);
-    user.pack();
-    user.setVisible(true);
-    
-    
-    
+
+    public void loginusuario() {
+        Usuario user = new Usuario(this, true);
+        user.pack();
+        user.setVisible(true);
+        
     }
-    public void registro(){
-    Registro re = new Registro(this,true);
-    re.pack();
-    re.setVisible(true);
-    
+
+    public void registro() {
+        Registro re = new Registro(this, true);
+        re.pack();
+        re.setVisible(true);
+        
     }
-    public void modocompra(){
-     UsuarioCatalogo user = new UsuarioCatalogo(this,true);
-     user.pack();
-     user.setVisible(true);
-    
+
+    public void modocompra() {
+        UsuarioCatalogo user = new UsuarioCatalogo(this, true);
+        user.pack();
+        user.setVisible(true);
+        
     }
-    public void compradisco(){
-       CompraDisco disco = new CompraDisco(this,true);
-       disco.pack();
-       disco.setVisible(true);
-    
+
+    public void compradisco() {
+        CompraDisco disco = new CompraDisco(this, true);
+        disco.pack();
+        disco.setVisible(true);
+        
     }
-    public void comprapelicula(){
-       CompraPelicula disco = new CompraPelicula(this,true);
-       disco.pack();
-       disco.setVisible(true);
+
+    public void comprapelicula() {
+        CompraPelicula disco = new CompraPelicula(this, true);
+        disco.pack();
+        disco.setVisible(true);
+        
+    }
     
+    public void procesocomdisco() {
+        
+        ProcesoCompraDisco disco = new ProcesoCompraDisco(this, true);
+        disco.pack();
+        disco.setVisible(true);
+        
+    }
+
+    public void procesopeli() {
+        ProcesoCompraPelicula peli = new ProcesoCompraPelicula(this, true);
+        peli.pack();
+        peli.setVisible(true);
+        
+    }
+
+    public void listacompras() {
+        ListaCompras lista = new ListaCompras(this, true);
+        lista.pack();
+        lista.setVisible(true);
+        
+    }
+
+    public void preordenes() {
+        ListaPreOrden pre = new ListaPreOrden(this, true);
+        pre.pack();
+        pre.setVisible(true);
+        
     }
 }

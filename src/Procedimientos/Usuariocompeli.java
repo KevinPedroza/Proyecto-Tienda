@@ -13,7 +13,9 @@ import static Interfaces.CompraPelicula.jtablepelicula;
 import static Interfaces.CompraPelicula.modelopeli;
 import static Interfaces.CompraPelicula.precio1;
 import static Interfaces.CompraPelicula.precio2;
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -152,20 +154,40 @@ public class Usuariocompeli {
         }
 
     }
-    
-    public void reproducirvideo(){
-     if(jlistapelicula.isSelectionEmpty()){
-         JOptionPane.showMessageDialog(null, "Seleccione una Pelicula para Reproducir!");
-     }else{
-     
-     
-     
-     }
-    
-    
-    
+
+    public void reproducirvideo() throws IOException {
+        if (jlistapelicula.isSelectionEmpty()) {
+            JOptionPane.showMessageDialog(null, "Seleccione una Pelicula para Reproducir!");
+        } else {
+
+            if (jlistapelicula.getSelectedValue().equals("IT")) {
+                String file = new String("It Trailer #1 (2017) - Movieclips Trailers.mp4");
+                File path = new File(file);
+                Desktop.getDesktop().open(path);
+            }
+            if (jlistapelicula.getSelectedValue().equals("BiG MAMA")) {
+                String file = new String("Big Momma's House Theatrical Trailer (2000) (1).mp4");
+                File path = new File(file);
+                Desktop.getDesktop().open(path);
+            }
+            if (jlistapelicula.getSelectedValue().equals("Titanes del Pacifico")) {
+                String file = new String("TITANES DEL PACÍFICO - Tráiler 1 subtitulado HD - Oficial de Warner Bros. Pictures.mp4");
+                File path = new File(file);
+                Desktop.getDesktop().open(path);
+
+            }
+            if (jlistapelicula.getSelectedValue().equals("El cazador de Brujas")) {
+                String file = new String("EL ÚLTIMO CAZADOR DE BRUJAS Tráiler Oficial Español.mp4");
+                File path = new File(file);
+                Desktop.getDesktop().open(path);
+            }
+            if (jlistapelicula.getSelectedValue().equals("Before You")) {
+                String file = new String("Yo Antes de Ti (Me Before You) - Tráiler 1 Oficial Subtitulado en HD.mp4");
+                File path = new File(file);
+                Desktop.getDesktop().open(path);
+            }
+        }
+
     }
 
-    
-    
 }

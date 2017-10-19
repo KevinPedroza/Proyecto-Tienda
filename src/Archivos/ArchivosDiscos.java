@@ -44,6 +44,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ArchivosDiscos {
 
+    admi ad = new admi();
+    BufferedReader bf2;
+    BufferedReader bf3;
+    BufferedReader bf4;
+    BufferedReader bf5;
+    BufferedReader bf6;
+    BufferedReader bf7;
+
     public static boolean revisarcat() {
         String cate = categorias.getSelectedItem().toString();
         boolean repite = false;
@@ -264,6 +272,199 @@ public class ArchivosDiscos {
         }
         JOptionPane.showMessageDialog(null, "Disco Modificado!");
 
+        String cantidadisco = "0";
+        boolean existe = false;
+        String nombre = null;
+
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals(obtenernombrepreorden())) {
+                    cantidadisco = lista1[5];
+                    existe = true;
+                    nombre = lista1[0];
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        int cantidad = Integer.parseInt(cantidadisco);
+
+        if (cantidad > 0 & existe == true) {
+            String correo = null;
+            boolean enviar = false;
+            try {
+                String temp;
+                bf2 = new BufferedReader(new FileReader("Pre-Ordenes.txt"));
+                int contador = 0;
+
+                temp = "";
+                String bfRead;
+
+                while ((bfRead = bf2.readLine()) != null) {
+                    contador++;
+                    temp = bfRead;
+                    String lista = temp;
+                    String[] lista1 = lista.split(";");
+                    if (nombre.equals(obtenernombrepreorden())) {
+                        enviar = true;
+                    }
+                }
+                bf2.close();
+            } catch (IOException e) {
+                System.err.println("No se encontro el archivo" + e);
+            }
+            if (enviar == true) {
+                int precio = Integer.parseInt(precio());
+                int cantidadsoli = Integer.parseInt(obtenercantidad());
+                int total = cantidadsoli * precio;
+                ad.enviarcorreopreorden(obtenercorreo(), obtenernombrepreorden(), "Disco", obtenercantidad(), String.valueOf(total));
+            }
+
+        }
+    }
+
+    public String precio() {
+        String precio = null;
+        try {
+            String temp;
+            bf3 = new BufferedReader(new FileReader("Discos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf3.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals(obtenernombrepreorden())) {
+                    precio = lista1[4];
+                }
+            }
+            bf3.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        return precio;
+    }
+
+    public String obtenercorreo() {
+
+        String can = null;
+        try {
+            String temp;
+            bf4 = new BufferedReader(new FileReader("Pre-Ordenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf4.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals(obtenerusuario())) {
+                    can = lista1[4];
+                }
+            }
+            bf4.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        return can;
+
+    }
+
+    public String obtenercantidad() {
+        String can = null;
+        try {
+            String temp;
+            bf5 = new BufferedReader(new FileReader("Pre-Ordenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf5.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[1].equals(obtenernombrepreorden())) {
+                    can = lista1[3];
+                }
+            }
+            bf5.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        return can;
+
+    }
+
+    public String obtenerusuario() {
+        String can = null;
+        try {
+            String temp;
+            bf6 = new BufferedReader(new FileReader("Pre-Ordenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf6.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[1].equals(obtenernombrepreorden())) {
+                    can = lista1[0];
+                }
+            }
+            bf6.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        return can;
+
+    }
+
+    public String obtenernombrepreorden() {
+        String can = null;
+        try {
+            String temp;
+            bf7 = new BufferedReader(new FileReader("Pre-Ordenes.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf7.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                can = lista1[1];
+            }
+            bf7.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        return can;
     }
 
     public void eliminardisco() {

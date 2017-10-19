@@ -5,10 +5,18 @@
  */
 package Interfaces;
 
+import static Archivos.ArchivoCompraPelicula.cantipeli;
 import Procedimientos.Instancias;
 import Procedimientos.Usuariocomdisco;
 import Procedimientos.Usuariocompeli;
+import Procedimientos.procedimientopeli;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,18 +29,20 @@ public class CompraPelicula extends javax.swing.JDialog {
      */
     public static DefaultListModel modelopeli;
     Usuariocompeli table = new Usuariocompeli();
+    Instancias insta = new Instancias();
+    procedimientopeli peli = new procedimientopeli();
 
     public CompraPelicula(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("Comprar Disco");
+        this.setTitle("Comprar Pelicula");
         busnombrepeli.setVisible(false);
         busaupeli.setVisible(false);
         precio1.setVisible(false);
         precio2.setVisible(false);
         alabelpeli.setVisible(false);
-        
+
         modelopeli = new DefaultListModel();
         jlistapelicula.setModel(modelopeli);
     }
@@ -62,7 +72,6 @@ public class CompraPelicula extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jlistapelicula = new javax.swing.JList<>();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -154,14 +163,21 @@ public class CompraPelicula extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 165, 188, -1));
 
-        jButton3.setText("Parar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 177, 94, -1));
-
         jButton4.setText("Reproducir");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 218, 94, -1));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 201, 94, 40));
 
-        jButton5.setText("Comprar");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 309, 122, -1));
+        jButton5.setText("Proceder a Compra");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 309, 140, -1));
 
         jLabel4.setText("Informacion de la Película");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 318, -1, -1));
@@ -214,18 +230,87 @@ public class CompraPelicula extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-        Instancias insta = new Instancias();
+
         insta.modocompra();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Usuariocompeli peli = new Usuariocompeli();
-        peli.Cargarnombre();
+         int precio11 = 0;
+         int precio22 = 0;
+        try {
+             precio11 = Integer.parseInt(precio1.getText());
+             precio22 = Integer.parseInt(precio2.getText());
+        } catch (java.lang.NumberFormatException e) {
+        }
+        if (precio11 > precio22) {
+            JOptionPane.showMessageDialog(null, "Ingrese un precio de mayor a menor!");
+            busnombrepeli.setText("");
+            precio1.setText("");
+            precio2.setText("");
+            busaupeli.setText("");
+        } else {
+            Usuariocompeli peli = new Usuariocompeli();
+            peli.Cargarnombre();
+            busnombrepeli.setText("");
+            precio1.setText("");
+            precio2.setText("");
+            busaupeli.setText("");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jlistapeliculaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jlistapeliculaValueChanged
         table.mostrarinfor();
     }//GEN-LAST:event_jlistapeliculaValueChanged
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Usuariocompeli peli = new Usuariocompeli();
+        try {
+            peli.reproducirvideo();
+        } catch (IOException ex) {
+            Logger.getLogger(CompraPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+    public String cantidad() {
+        String cantida = null;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("Peliculas.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (jlistapelicula.getSelectedValue().equals(lista1[0])) {
+                    cantida = lista1[4];
+
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        return cantida;
+    }
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        if (jlistapelicula.isSelectionEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Seleccione un Disco para Comprar!");
+        }
+        if (cantidad().equals("0")) {
+            this.setVisible(false);
+            peli.leercantidad();
+        } else {
+            this.setVisible(false);
+
+            insta.procesopeli();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,7 +363,6 @@ public class CompraPelicula extends javax.swing.JDialog {
     public static javax.swing.JRadioButton chepreciopeli;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

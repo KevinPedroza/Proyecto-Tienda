@@ -5,9 +5,16 @@
  */
 package Interfaces;
 
+import static Archivos.ArchivoCompraPelicula.cantipeli;
 import Procedimientos.Instancias;
 import Procedimientos.Usuariocomdisco;
+import Procedimientos.procedimientodisco;
+import static Procedimientos.procedimientodisco.nombre;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +26,10 @@ public class CompraDisco extends javax.swing.JDialog {
      * Creates new form CompraDisco
      */
     public static DefaultListModel modelo;
-    Usuariocomdisco table = new Usuariocomdisco();
+
     Usuariocomdisco us = new Usuariocomdisco();
+    Instancias insta = new Instancias();
+    procedimientodisco disco = new procedimientodisco();
 
     public CompraDisco(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -138,8 +147,13 @@ public class CompraDisco extends javax.swing.JDialog {
         jLabel2.setText("Información del Disco");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 287, -1, -1));
 
-        jButton3.setText("Comprar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 280, 120, -1));
+        jButton3.setText("Proceder a Compra");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 280, 140, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         jLabel3.setText("Seleccione algún Disco");
@@ -224,21 +238,36 @@ public class CompraDisco extends javax.swing.JDialog {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
-        Instancias insta = new Instancias();
+
         insta.modocompra();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Usuariocomdisco user = new Usuariocomdisco();
-        user.Cargarnombre();
-        buscarnombre.setText("");
-        buscarautor.setText("");
-        buscarprecio.setText("");
-        buscarprecio2.setText("");
+        int precio11 = 0;
+        int precio22 = 0;
+        try {
+            precio11 = Integer.parseInt(buscarprecio.getText());
+            precio22 = Integer.parseInt(buscarprecio2.getText());
+        } catch (java.lang.NumberFormatException e) {
+        }
+
+        if (precio11 > precio22) {
+            JOptionPane.showMessageDialog(null, "Ingrese un precio de mayor a menor!");
+            buscarnombre.setText("");
+            buscarautor.setText("");
+            buscarprecio.setText("");
+            buscarprecio2.setText("");
+        } else {
+            us.Cargarnombre();
+            buscarnombre.setText("");
+            buscarautor.setText("");
+            buscarprecio.setText("");
+            buscarprecio2.setText("");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jlistacompradiscoValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jlistacompradiscoValueChanged
-        table.mostrarinfor();
+        us.mostrarinfor();
 
     }//GEN-LAST:event_jlistacompradiscoValueChanged
 
@@ -252,6 +281,49 @@ public class CompraDisco extends javax.swing.JDialog {
 
         us.parar();
     }//GEN-LAST:event_bpararActionPerformed
+
+    public String cantidad() {
+        String cantidad = null;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (jlistacompradisco.getSelectedValue().equals(lista1[0])) {
+                    cantidad = lista1[5];
+
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+        return cantidad;
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        if (jlistacompradisco.isSelectionEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Seleccione un Disco para Comprar!");
+        }
+        if (cantidad().equals("0")) {
+            this.setVisible(false);
+            disco.leercantidad();
+        } else {
+            this.setVisible(false);
+
+            insta.procesocomdisco();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,6 +370,7 @@ public class CompraDisco extends javax.swing.JDialog {
                     }
                 });
                 dialog.setVisible(true);
+
             }
         });
     }

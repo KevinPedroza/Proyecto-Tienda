@@ -16,6 +16,8 @@ public class UsuarioCatalogo extends javax.swing.JDialog {
     /**
      * Creates new form UsuarioCatalogo
      */
+    Instancias insta = new Instancias();
+
     public UsuarioCatalogo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -57,6 +59,11 @@ public class UsuarioCatalogo extends javax.swing.JDialog {
         });
 
         jButton1.setText("Volver al Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,15 +104,18 @@ public class UsuarioCatalogo extends javax.swing.JDialog {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         this.setVisible(false);
-        Instancias insta = new Instancias();
         insta.compradisco();
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         this.setVisible(false);
-        Instancias insta = new Instancias();
         insta.comprapelicula();
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        new Menu().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
