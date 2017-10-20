@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 
 /**
@@ -18,11 +21,17 @@ public class Menu extends JFrame {
      *
      * @param parent
      */
+    Date fechaActual = new Date();
+    DateFormat formatoHora = new SimpleDateFormat("HH:mm");
+
     public Menu() {
-        
+
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Login");
+        
+            horalabel.setText("Hora Actual: " + formatoHora.format(fechaActual));
+        
     }
 
     /**
@@ -38,6 +47,7 @@ public class Menu extends JFrame {
         administrador = new javax.swing.JRadioButton();
         usuario = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
+        horalabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -72,8 +82,13 @@ public class Menu extends JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(71, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(62, 62, 62))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(horalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,28 +99,30 @@ public class Menu extends JFrame {
                 .addComponent(administrador)
                 .addGap(45, 45, 45)
                 .addComponent(usuario)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(horalabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void administradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_administradorActionPerformed
-        this.setVisible(false);
+        this.dispose();
         Administrador admi = new Administrador(this, true);
         admi.pack();
         admi.setVisible(true);
         administrador.setSelected(false);
-        
+
     }//GEN-LAST:event_administradorActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
-        this.setVisible(false);
+        this.dispose();
         Usuario usu = new Usuario(this, true);
         usu.pack();
         usu.setVisible(true);
         usuario.setSelected(false);
-        
+
     }//GEN-LAST:event_usuarioActionPerformed
 
     /**
@@ -148,6 +165,7 @@ public class Menu extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton administrador;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel horalabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JRadioButton usuario;
     // End of variables declaration//GEN-END:variables

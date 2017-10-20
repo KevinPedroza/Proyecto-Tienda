@@ -53,7 +53,7 @@ public class procedimientodisco extends JFrame {
             System.err.println("No se encontro el archivo" + e);
         }
        
-        if (canti.equals("0")) {
+        if (Integer.parseInt(canti) <= 0) {
 
             Object preg = "No Disponemos de este Disco" + "\n"
                     + "Desea Realizar una Pre-Orden?";

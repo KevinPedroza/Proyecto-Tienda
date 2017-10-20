@@ -29,7 +29,7 @@ import javax.swing.table.DefaultTableModel;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.applet.AudioClip;
-
+import java.util.Arrays;
 
 /**
  *
@@ -37,7 +37,6 @@ import java.applet.AudioClip;
  */
 public class Usuariocomdisco extends JFrame {
 
-    
     AudioClip sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Bebe Rexha - In The Name Of Love (Official Video) (online-audio-converter.com).wav"));
     AudioClip sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Dua Lipa - Scared To Be Lonely (Official Video) (online-audio-converter.com).wav"));
     AudioClip sonido3 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/P!nk - What About Us (Shaun Barron Bootleg) (online-audio-converter.com).wav"));
@@ -45,19 +44,16 @@ public class Usuariocomdisco extends JFrame {
     AudioClip sonido5 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/La Tierra Canta - Barak (letra)_3P6KiEY_zA0_youtube (online-audio-converter.com).wav"));
     public static String usuario;
     public static String correouser;
+    ArchivoUsuario lo = new ArchivoUsuario();
+
     public String[] leer() {
-        ArchivoUsuario lo = new ArchivoUsuario();
+
         lo.crearlogin();
         String info = lo.obtener();
 
         String[] posi = info.split(";");
 
         return posi;
-    }
-
-    public static void crear() {
-        ArchivoUsuario lo = new ArchivoUsuario();
-        lo.crearlogin();
     }
 
     public static boolean vacio() {
@@ -83,14 +79,70 @@ public class Usuariocomdisco extends JFrame {
 
     }
 
+    public String obtenerusuaio() {
+        String user = usunombre.getText();
+        String usuario = null;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("Usuarios.txt"));
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals(user)) {
+                    usuario = lista1[0];
+                }
+
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return usuario;
+    }
+
+    public String obtenercontra() {
+        String user = usucontra.getText();
+        String usuario = null;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("Usuarios.txt"));
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[2].equals(user)) {
+                    usuario = lista1[2];
+                }
+
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return usuario;
+    }
+
     public void ingreusu() {
 
         if (vacio() == true) {
-            try {
-                String[] info = leer();
 
-                String usu = info[0];
-                String contra = info[2];
+            try {
+                
+                String usu = obtenerusuaio();
+                String contra = obtenercontra();
                 String u = usunombre.getText();
                 String c = usucontra.getText();
                 if (u.equals(usu) & c.equals(contra)) {
@@ -159,7 +211,7 @@ public class Usuariocomdisco extends JFrame {
 
                     } else {
                         existe = false;
-                        
+
                     }
 
                 }

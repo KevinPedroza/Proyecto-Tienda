@@ -141,37 +141,38 @@ public class Opciones extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         
         insta.catalogomusica();
         
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         
         insta.catalogopelicula();
         
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         new Menu().setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        this.setVisible(true);
+        this.dispose();
         insta.listacompras();
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         insta.preordenes();
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        
+        this.dispose();
+        insta.reportes();
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
     /**

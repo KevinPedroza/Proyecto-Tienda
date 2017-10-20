@@ -63,10 +63,10 @@ public class ArchivoUsuario {
 
             temp = "";
             String bfRead = bf.readLine();
-
-            temp = bfRead;
-            lista = temp;
-
+            while ((bfRead = bf.readLine()) != null) {
+                temp = bfRead;
+                lista = temp;
+            }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "No se encontro el archivo" + e);
         }

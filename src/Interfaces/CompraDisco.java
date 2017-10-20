@@ -237,7 +237,7 @@ public class CompraDisco extends javax.swing.JDialog {
     }//GEN-LAST:event_chenombrediscoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        this.setVisible(false);
+        this.dispose();
 
         insta.modocompra();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -315,11 +315,11 @@ public class CompraDisco extends javax.swing.JDialog {
 
             JOptionPane.showMessageDialog(null, "Seleccione un Disco para Comprar!");
         }
-        if (cantidad().equals("0")) {
-            this.setVisible(false);
+        if (Integer.parseInt(cantidad()) <= 0) {
+            this.dispose();
             disco.leercantidad();
         } else {
-            this.setVisible(false);
+            this.dispose();
 
             insta.procesocomdisco();
         }

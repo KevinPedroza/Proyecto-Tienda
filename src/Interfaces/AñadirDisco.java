@@ -177,7 +177,7 @@ public class AñadirDisco extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         Instancias insta = new Instancias();
         insta.catalogomusica();
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -25,6 +25,7 @@ import Interfaces.OpcionesCatalogoPelicula;
 import Interfaces.ProcesoCompraDisco;
 import Interfaces.ProcesoCompraPelicula;
 import Interfaces.Registro;
+import Interfaces.Reportes;
 import Interfaces.Usuario;
 import Interfaces.UsuarioCatalogo;
 import javax.swing.JFrame;
@@ -167,6 +168,12 @@ public class Instancias extends JFrame {
         ListaPreOrden pre = new ListaPreOrden(this, true);
         pre.pack();
         pre.setVisible(true);
+        
+    }
+    public void reportes(){
+        Reportes re = new Reportes(this,true);
+        re.pack();
+        re.setVisible(true);
         
     }
 }

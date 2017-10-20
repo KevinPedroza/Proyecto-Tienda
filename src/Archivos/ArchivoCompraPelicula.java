@@ -103,7 +103,7 @@ public class ArchivoCompraPelicula {
 
                 user.enviarcorreocmprapeli(email);
                 restarcantidad();
-                insta.comprapelicula();
+                
 
             } catch (java.lang.NumberFormatException e) {
 

@@ -16,6 +16,8 @@ public class OpcionesCatalogoPelicula extends javax.swing.JDialog {
     /**
      * Creates new form CatalogoPelicula
      */
+    Instancias insta = new Instancias();
+
     public OpcionesCatalogoPelicula(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -117,38 +119,33 @@ public class OpcionesCatalogoPelicula extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         new Menu().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.añadirpelicula();
 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.catalogos();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.leerpeli();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.modificarpeli();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.eliminarpeli();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 

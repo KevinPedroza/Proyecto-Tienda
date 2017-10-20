@@ -116,7 +116,7 @@ public class EliminarDisco extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         Instancias insta = new Instancias();
         insta.catalogomusica();
     }//GEN-LAST:event_jButton2ActionPerformed

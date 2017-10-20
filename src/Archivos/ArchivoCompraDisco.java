@@ -108,7 +108,7 @@ public class ArchivoCompraDisco {
 
                 user.enviarcorreocmpra(email);
                 restarcantidad();
-
+                
             } catch (java.lang.NumberFormatException e) {
 
             }

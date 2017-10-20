@@ -54,7 +54,7 @@ public class procedimientopeli extends JFrame {
         }
         
         
-        if (cantipeli.equals("0")) {
+        if (Integer.parseInt(cantipeli) <= 0) {
 
             Object preg = "No disponemos de este producto por el momento \n"
                     + "Desea Realizar una Pre-Orden?";

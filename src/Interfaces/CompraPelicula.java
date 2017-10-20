@@ -229,17 +229,17 @@ public class CompraPelicula extends javax.swing.JDialog {
     }//GEN-LAST:event_chenombrepeliActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
+        this.dispose();
 
         insta.modocompra();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         int precio11 = 0;
-         int precio22 = 0;
+        int precio11 = 0;
+        int precio22 = 0;
         try {
-             precio11 = Integer.parseInt(precio1.getText());
-             precio22 = Integer.parseInt(precio2.getText());
+            precio11 = Integer.parseInt(precio1.getText());
+            precio22 = Integer.parseInt(precio2.getText());
         } catch (java.lang.NumberFormatException e) {
         }
         if (precio11 > precio22) {
@@ -300,13 +300,13 @@ public class CompraPelicula extends javax.swing.JDialog {
 
         if (jlistapelicula.isSelectionEmpty()) {
 
-            JOptionPane.showMessageDialog(null, "Seleccione un Disco para Comprar!");
+            JOptionPane.showMessageDialog(null, "Seleccione una Pelicula para Comprar!");
         }
-        if (cantidad().equals("0")) {
-            this.setVisible(false);
+        if (Integer.parseInt(cantidad()) <= 0) {
+            this.dispose();
             peli.leercantidad();
         } else {
-            this.setVisible(false);
+            this.dispose();
 
             insta.procesopeli();
         }

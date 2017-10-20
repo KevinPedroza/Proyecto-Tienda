@@ -16,6 +16,8 @@ public class OpcionesCatalogoMusica extends javax.swing.JDialog {
     /**
      * Creates new form CatalogoMusica
      */
+    
+        Instancias insta = new Instancias();
     public OpcionesCatalogoMusica(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -123,39 +125,34 @@ public class OpcionesCatalogoMusica extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.eliminardisco();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         new Menu().setVisible(true);
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.catalogos();
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.modificardisco();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.leerdiscos();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        this.setVisible(false);
-        Instancias insta = new Instancias();
+        this.dispose();
         insta.añadirdisco();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 

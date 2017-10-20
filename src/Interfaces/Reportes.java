@@ -5,6 +5,10 @@
  */
 package Interfaces;
 
+import Procedimientos.Instancias;
+import java.awt.Button;
+import java.awt.event.ActionEvent;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -23,7 +27,11 @@ public class Reportes extends javax.swing.JDialog {
      */
     JFreeChart Grafica;
     DefaultCategoryDataset Datos = new DefaultCategoryDataset();
-    Procedimientos.Reportes reporte1 = new Procedimientos.Reportes();
+    Procedimientos.procedimientoReportes reporte1 = new Procedimientos.procedimientoReportes();
+    JFreeChart Graficapeli;
+    DefaultCategoryDataset Datospeli = new DefaultCategoryDataset();
+    Instancias insta = new Instancias();
+    
 
     public Reportes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -39,6 +47,17 @@ public class Reportes extends javax.swing.JDialog {
         Grafica = ChartFactory.createBarChart("Compras de Discos",
                 "Categorias", "Compras", Datos,
                 PlotOrientation.HORIZONTAL, true, true, false);
+
+        Datospeli.addValue(reporte1.cantidadpeli4(), "Accíon", "Accíon");
+        Datospeli.addValue(reporte1.cantidadpeli1(), "Terror", "Terror");
+        Datospeli.addValue(reporte1.cantidadpeli5(), "Drama", "Drama");
+        Datospeli.addValue(reporte1.cantidadpeli2(), "Suspenso", "Suspenso");
+        Datospeli.addValue(reporte1.cantidadpeli3(), "Comedia", "Comedia");
+
+        Graficapeli = ChartFactory.createBarChart("Compras de Peliculas",
+                "Categorias", "Compras", Datospeli,
+                PlotOrientation.HORIZONTAL, true, true, false);
+
     }
 
     /**
@@ -56,6 +75,8 @@ public class Reportes extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,8 +95,30 @@ public class Reportes extends javax.swing.JDialog {
         jButton3.setText("Reporte 3");
 
         jButton4.setText("Reporte 4");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton4MousePressed(evt);
+            }
+        });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Reporte 5");
+
+        jButton6.setText("Reporte 6");
+
+        jButton7.setText("Volver a Opciones");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,39 +129,50 @@ public class Reportes extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addGap(111, 111, 111))
             .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1))))
+                .addContainerGap()
+                .addComponent(jButton7)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton3)
+                                .addComponent(jButton2)
+                                .addComponent(jButton1)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jButton7)))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         ChartPanel Panel = new ChartPanel(Grafica);
         JFrame Ventana = new JFrame("Reporte 1");
         Ventana.getContentPane().add(Panel);
@@ -126,7 +180,36 @@ public class Reportes extends javax.swing.JDialog {
         Ventana.setLocationRelativeTo(null);
         Ventana.setVisible(true);
         Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+
+        ChartPanel Panel = new ChartPanel(Graficapeli);
+        JFrame Ventana = new JFrame("Reporte 4");
+        Ventana.getContentPane().add(Panel);
+        Ventana.pack();
+        Ventana.setLocationRelativeTo(null);
+        Ventana.setVisible(true);
+        Ventana.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        this.dispose();
+
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.dispose();
+        insta.catalogos();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+        
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
+        
+    }//GEN-LAST:event_jButton4MousePressed
 
     /**
      * @param args the command line arguments
@@ -176,6 +259,8 @@ public class Reportes extends javax.swing.JDialog {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

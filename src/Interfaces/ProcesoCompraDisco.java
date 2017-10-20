@@ -63,6 +63,11 @@ public class ProcesoCompraDisco extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
         jLabel1.setText("Ingrese la Cantidad de Discos");
 
+        cantidadiscos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadiscosActionPerformed(evt);
+            }
+        });
         cantidadiscos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cantidadiscosKeyPressed(evt);
@@ -167,12 +172,15 @@ public class ProcesoCompraDisco extends javax.swing.JDialog {
         } catch (java.lang.NumberFormatException e) {
             can = 0;
         }
+        if (can > 9) {
+            JOptionPane.showMessageDialog(null, "Ingrese una cantidad menor a 9 unidades!");
 
+        }
         disco.obtenerprecio(can);
     }//GEN-LAST:event_cantidadiscosKeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
+        this.dispose();
         insta.compradisco();
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -180,9 +188,13 @@ public class ProcesoCompraDisco extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
         compra.Anadircompra();
-        this.setVisible(false);
-        insta.compradisco();
+       
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cantidadiscosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadiscosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantidadiscosActionPerformed
 
     /**
      * @param args the command line arguments

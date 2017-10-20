@@ -160,7 +160,7 @@ public class ProcesoCompraPelicula extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.setVisible(false);
+        this.dispose();
 
         insta.comprapelicula();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -174,11 +174,15 @@ public class ProcesoCompraPelicula extends javax.swing.JDialog {
         int can2 = evt.getExtendedKeyCode();
         String canti = String.valueOf(cantidad);
         int can = 0;
-        System.out.println(can2);
+        
         try {
             can = Integer.parseInt(canti);
         } catch (java.lang.NumberFormatException e) {
             can = 0;
+        }
+        if(can > 9){
+            JOptionPane.showMessageDialog(null, "Ingrese una cantidad menor a 9 unidades!");
+            
         }
         peli.obtenerprecio(can);
     }//GEN-LAST:event_cantidapeliculaKeyPressed
@@ -186,8 +190,8 @@ public class ProcesoCompraPelicula extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
         compra.Anadircompra();
-        this.setVisible(false);
-        insta.comprapelicula();
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
