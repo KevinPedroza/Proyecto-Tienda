@@ -6,9 +6,7 @@
 package Interfaces;
 
 import Procedimientos.Instancias;
-import java.awt.Button;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -31,13 +29,14 @@ public class Reportes extends javax.swing.JDialog {
     JFreeChart Graficapeli;
     DefaultCategoryDataset Datospeli = new DefaultCategoryDataset();
     Instancias insta = new Instancias();
-    
+    JDialog Ventana = new JDialog(this, true);
 
     public Reportes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Sección Reportes");
+
         Datos.addValue(reporte1.cantidad1(), "Merengue", "Merengue");
         Datos.addValue(reporte1.cantidad3(), "Salsa", "Salsa");
         Datos.addValue(reporte1.cantidad2(), "Electronica", "Electronica");
@@ -91,6 +90,11 @@ public class Reportes extends javax.swing.JDialog {
         });
 
         jButton2.setText("Reporte 2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Reporte 3");
 
@@ -110,6 +114,11 @@ public class Reportes extends javax.swing.JDialog {
         });
 
         jButton5.setText("Reporte 5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Reporte 6");
 
@@ -172,28 +181,26 @@ public class Reportes extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
+        Ventana.setTitle("Reporte 1");
         ChartPanel Panel = new ChartPanel(Grafica);
-        JFrame Ventana = new JFrame("Reporte 1");
-        Ventana.getContentPane().add(Panel);
-        Ventana.pack();
-        Ventana.setLocationRelativeTo(null);
-        Ventana.setVisible(true);
-        Ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-
-        ChartPanel Panel = new ChartPanel(Graficapeli);
-        JFrame Ventana = new JFrame("Reporte 4");
         Ventana.getContentPane().add(Panel);
         Ventana.pack();
         Ventana.setLocationRelativeTo(null);
         Ventana.setVisible(true);
         Ventana.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        this.dispose();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        ChartPanel Panel = new ChartPanel(Graficapeli);
+        JDialog Ventana = new JDialog(this, true);
+        Ventana.setTitle("Reporte 4");
+        Ventana.getContentPane().add(Panel);
+        Ventana.pack();
+        Ventana.setLocationRelativeTo(null);
+        Ventana.setVisible(true);
+        Ventana.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -204,12 +211,22 @@ public class Reportes extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
-        
+
     }//GEN-LAST:event_jButton4MouseEntered
 
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
-        
+
     }//GEN-LAST:event_jButton4MousePressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        insta.elegir_usuariodisco();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.dispose();
+        insta.elegir_usuariopeli();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

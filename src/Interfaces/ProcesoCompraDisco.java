@@ -6,9 +6,14 @@
 package Interfaces;
 
 import Archivos.ArchivoCompraDisco;
+import static Interfaces.CompraDisco.jlistacompradisco;
+import static Interfaces.CompraPelicula.jlistapelicula;
 import Procedimientos.Instancias;
 import static Procedimientos.Usuariocomdisco.usuario;
 import Procedimientos.procedimientodisco;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -163,10 +168,43 @@ public class ProcesoCompraDisco extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public int leer() {
+        String cantidadisco = null;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                if (lista1[0].equals(jlistacompradisco.getSelectedValue())) {
+                    cantidadisco = lista1[5];
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return Integer.parseInt(cantidadisco);
+    }
     private void cantidadiscosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadiscosKeyPressed
         char cantidad = evt.getKeyChar();
         String canti = String.valueOf(cantidad);
         int can = 0;
+
+        try {
+            if (Integer.parseInt(canti) > leer()) {
+                JOptionPane.showMessageDialog(null, "No Disponemos esa Cantidad solicitada, Solamente: " + String.valueOf(leer()));
+            }
+        } catch (java.lang.NumberFormatException e) {
+        }
         try {
             can = Integer.parseInt(canti);
         } catch (java.lang.NumberFormatException e) {
@@ -188,7 +226,7 @@ public class ProcesoCompraDisco extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
         compra.Anadircompra();
-       
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
