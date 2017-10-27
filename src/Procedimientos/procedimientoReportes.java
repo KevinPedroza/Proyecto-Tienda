@@ -15,17 +15,17 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author Kevin
  */
 public class procedimientoReportes {
-    
+
     public String leer1() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -39,20 +39,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leer2() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -66,20 +66,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leer3() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -93,20 +93,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leer4() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -120,20 +120,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leer5() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -147,20 +147,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public int cantidad1() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -174,20 +174,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidad2() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -201,20 +201,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidad3() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -228,20 +228,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidad4() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -255,20 +255,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidad5() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -282,20 +282,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public String leerpeli1() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Peliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -309,20 +309,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leerpeli2() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Peliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -336,20 +336,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leerpeli3() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Peliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -363,20 +363,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leerpeli4() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Peliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -390,20 +390,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public String leerpeli5() {
-        String nombredisco = null;
+        String nombredisco = "";
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Peliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -417,20 +417,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return nombredisco;
     }
-    
+
     public int cantidadpeli1() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -444,20 +444,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidadpeli2() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -471,20 +471,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidadpeli3() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -498,20 +498,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidadpeli4() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -525,20 +525,20 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int cantidadpeli5() {
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -552,58 +552,58 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public void llenar_list() {
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Usuarios.txt"));
-            
+
             temp = "";
             String bfRead;
             while ((bfRead = bf2.readLine()) != null) {
                 temp = bfRead;
                 String lista = temp;
-                
+
                 String[] lista1 = lista.split(";");
-                
+
                 modelousu.addElement(lista1[0]);
-                
+
             }
-            
+
             bf2.close();
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
     }
-    
+
     public void llenar_listpeli() {
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Usuarios.txt"));
-            
+
             temp = "";
             String bfRead;
             while ((bfRead = bf2.readLine()) != null) {
                 temp = bfRead;
                 String lista = temp;
-                
+
                 String[] lista1 = lista.split(";");
-                
+
                 modelousupeli.addElement(lista1[0]);
-                
+
             }
-            
+
             bf2.close();
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
     }
-    
+
     public int usercanti() {
         String nombre = listausuario.getSelectedValue();
         int cantidad = 0;
@@ -611,10 +611,10 @@ public class procedimientoReportes {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -628,10 +628,10 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int usercanti2() {
         String nombre = listausuario.getSelectedValue();
         int cantidad = 0;
@@ -639,10 +639,10 @@ public class procedimientoReportes {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -656,10 +656,10 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int usercanti3() {
         String nombre = listausuario.getSelectedValue();
         int cantidad = 0;
@@ -667,10 +667,10 @@ public class procedimientoReportes {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -684,10 +684,10 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int usercanti4() {
         String nombre = listausuario.getSelectedValue();
         int cantidad = 0;
@@ -695,10 +695,10 @@ public class procedimientoReportes {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -712,22 +712,22 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int usercanti5() {
-        
+
         String nombre = listausuario.getSelectedValue();
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -741,22 +741,22 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
     }
-    
+
     public int userpeli() {
-        
+
         String nombre = listapeliuser.getSelectedValue();
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -770,23 +770,23 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
-        
+
     }
-    
+
     public int userpeli2() {
-        
+
         String nombre = listapeliuser.getSelectedValue();
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -800,23 +800,23 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
-        
+
     }
-    
+
     public int userpeli3() {
-        
+
         String nombre = listapeliuser.getSelectedValue();
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -830,23 +830,23 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
-        
+
     }
-    
+
     public int userpeli4() {
-        
+
         String nombre = listapeliuser.getSelectedValue();
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -860,23 +860,23 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
-        
+
     }
-    
+
     public int userpeli5() {
-        
+
         String nombre = listapeliuser.getSelectedValue();
         int cantidad = 0;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
             int contador = 0;
-            
+
             temp = "";
             String bfRead;
-            
+
             while ((bfRead = bf2.readLine()) != null) {
                 contador++;
                 temp = bfRead;
@@ -890,30 +890,35 @@ public class procedimientoReportes {
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-        
+
         return cantidad;
-        
+
     }
-    
+
     public CategoryDataset cargardisco() {
         DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
-        Datos3.addValue(usercanti(), "Merengue", "Merengue");
-        Datos3.addValue(usercanti2(), "Salsa", "Salsa");
-        Datos3.addValue(usercanti3(), "Electronica", "Electronica");
-        Datos3.addValue(usercanti4(), "Cristiana", "Cristiana");
-        Datos3.addValue(usercanti5(), "Cumbia", "Cumbia");
-        
+        Datos3.addValue(usercanti(), leer4(), leer4());
+        Datos3.addValue(usercanti2(), leer2(), leer2());
+        Datos3.addValue(usercanti3(), leer1(), leer1());
+        Datos3.addValue(usercanti4(), leer3(), leer3());
+        Datos3.addValue(usercanti5(), leer5(), leer5());
+
         return Datos3;
     }
-    
+
     public CategoryDataset cargarpeli() {
         DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
-        Datos3.addValue(userpeli(), "Accíon", "Accíon");
-        Datos3.addValue(userpeli2(), "Terror", "Terror");
-        Datos3.addValue(userpeli3(), "Drama", "Drama");
-        Datos3.addValue(userpeli4(), "Suspenso", "Suspenso");
-        Datos3.addValue(userpeli5(), "Comedia", "Comedia");
-        
+        Datos3.addValue(userpeli(), leerpeli3(), leerpeli3());
+        Datos3.addValue(userpeli2(), leerpeli4(), leerpeli4());
+        Datos3.addValue(userpeli3(), leerpeli5(), leerpeli5());
+        Datos3.addValue(userpeli4(), leerpeli1(), leerpeli1());
+        Datos3.addValue(userpeli5(), leerpeli2(), leerpeli2());
+
         return Datos3;
     }
+
+    /*public int fecha1() {
+
+        return can;
+    }*/
 }

@@ -14,6 +14,7 @@ import Interfaces.Elegir_Usuario;
 import Interfaces.Elegir_usupeli;
 import Interfaces.EliminarDisco;
 import Interfaces.EliminarPelicula;
+import Interfaces.Fecha_Fin;
 import Interfaces.LeerDisco;
 import Interfaces.LeerPelicula;
 import Interfaces.ListaCompras;
@@ -194,5 +195,12 @@ public class Instancias extends JFrame {
         ele.pack();
         ele.setVisible(true);
 
+    }
+    
+    public void fechafin(){
+        Fecha_Fin fin = new Fecha_Fin(this,true);
+        fin.pack();
+        fin.setVisible(true);
+    
     }
 }
