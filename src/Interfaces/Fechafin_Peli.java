@@ -1,14 +1,12 @@
 
 package Interfaces;
 
-import static Interfaces.Fecha_Inicio.ahora2;
+import static Interfaces.Fechaini_Peli.ahorapeli;
 import Procedimientos.Instancias;
 import Procedimientos.procedimientoReportes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -21,16 +19,16 @@ import org.jfree.chart.plot.PlotOrientation;
  *
  * @author Kevin
  */
-public class Fecha_Fin extends javax.swing.JDialog {
+public class Fechafin_Peli extends javax.swing.JDialog {
 
     /**
-     * this jframe is gonna show a calendar where you csn choose a date, then to see the third report
+     * this jframe will let you a date from the movie calendar, then to see the sixth report 
      */
+    Instancias insta = new Instancias();
     JFreeChart Grafica3;
     procedimientoReportes re = new procedimientoReportes();
-    Instancias insta = new Instancias();
 
-    public Fecha_Fin(java.awt.Frame parent, boolean modal) {
+    public Fechafin_Peli(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setTitle("Fecha Fin");
@@ -46,7 +44,7 @@ public class Fecha_Fin extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        calendario2 = new com.toedter.calendar.JCalendar();
+        calendariopeli2 = new com.toedter.calendar.JCalendar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -73,50 +71,52 @@ public class Fecha_Fin extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(calendario2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(calendariopeli2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(calendario2, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(calendariopeli2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public static String ahora3 = null;
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        insta.reportes();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    public static String ahorapeli2 = null;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy");
-        ahora3 = formato2.format(calendario2.getDate());
-        if (calendario2.getCalendar().get(Calendar.YEAR) != 2017) {
+        ahorapeli2 = formato2.format(calendariopeli2.getDate());
+        if (calendariopeli2.getCalendar().get(Calendar.YEAR) != 2017) {
             JOptionPane.showMessageDialog(null, "Ingrese el Año actual!");
         } else {
-            JOptionPane.showMessageDialog(null, "Fecha Inicio: " + ahora2 + "\n" + "Fecha Fin: " + ahora3);
+            JOptionPane.showMessageDialog(null, "Fecha Inicio: " + ahorapeli + "\n" + "Fecha Fin: " + ahorapeli2);
 
             try {
                 Grafica3 = ChartFactory.createBarChart("Compras por Rango de Fecha",
-                        "Categorias", "Compras", re.cargardiscofechas(),
+                        "Categorias", "Compras", re.cargarpelifecha(),
                         PlotOrientation.HORIZONTAL, true, true, false);
             } catch (ParseException ex) {
-                Logger.getLogger(Fecha_Fin.class.getName()).log(Level.SEVERE, null, ex);
+
             }
 
             ChartPanel Panel = new ChartPanel(Grafica3);
             JDialog Ventana = new JDialog(this, true);
-            Ventana.setTitle("Reporte 3");
+            Ventana.setTitle("Reporte 6");
             Ventana.getContentPane().add(Panel);
             Ventana.pack();
             Ventana.setLocationRelativeTo(null);
@@ -125,14 +125,9 @@ public class Fecha_Fin extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
-        insta.reportes();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static com.toedter.calendar.JCalendar calendario2;
+    public static com.toedter.calendar.JCalendar calendariopeli2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables

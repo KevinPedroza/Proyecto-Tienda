@@ -4,9 +4,16 @@ import static Interfaces.Elegir_Usuario.listausuario;
 import static Interfaces.Elegir_Usuario.modelousu;
 import static Interfaces.Elegir_usupeli.listapeliuser;
 import static Interfaces.Elegir_usupeli.modelousupeli;
+import static Interfaces.Fecha_Fin.ahora3;
+import static Interfaces.Fecha_Inicio.ahora2;
+import static Interfaces.Fechafin_Peli.ahorapeli2;
+import static Interfaces.Fechaini_Peli.ahorapeli;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -16,7 +23,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class procedimientoReportes {
 
-    public String leer1() {
+    public static String leer1() {
         String nombredisco = "";
         try {
             String temp;
@@ -43,7 +50,7 @@ public class procedimientoReportes {
         return nombredisco;
     }
 
-    public String leer2() {
+    public static String leer2() {
         String nombredisco = "";
         try {
             String temp;
@@ -906,6 +913,192 @@ public class procedimientoReportes {
         return Datos3;
     }
 
+    public int fecha1() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        String fechaini = ahora2;
+        String fechafin = ahora3;
+        Date fechainicio = formato2.parse(ahora2);
+        Date fechafin2 = formato2.parse(ahora3);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leer4()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fecha2() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        String fechaini = ahora2;
+        String fechafin = ahora3;
+        Date fechainicio = formato2.parse(ahora2);
+        Date fechafin2 = formato2.parse(ahora3);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leer2()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fecha3() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        String fechaini = ahora2;
+        String fechafin = ahora3;
+        Date fechainicio = formato2.parse(ahora2);
+        Date fechafin2 = formato2.parse(ahora3);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leer1()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fecha4() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        String fechaini = ahora2;
+        String fechafin = ahora3;
+        Date fechainicio = formato2.parse(ahora2);
+        Date fechafin2 = formato2.parse(ahora3);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leer3()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fecha5() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        String fechaini = ahora2;
+        String fechafin = ahora3;
+        Date fechainicio = formato2.parse(ahora2);
+        Date fechafin2 = formato2.parse(ahora3);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasDiscos.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leer5()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public CategoryDataset cargardiscofechas() throws ParseException {
+        DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
+        Datos3.addValue(fecha1(), leer4(), leer4());
+        Datos3.addValue(fecha2(), leer2(), leer2());
+        Datos3.addValue(fecha3(), leer1(), leer1());
+        Datos3.addValue(fecha4(), leer3(), leer3());
+        Datos3.addValue(fecha5(), leer5(), leer5());
+
+        return Datos3;
+    }
+
     public CategoryDataset cargarpeli() {
         DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
         Datos3.addValue(userpeli(), leerpeli3(), leerpeli3());
@@ -917,8 +1110,181 @@ public class procedimientoReportes {
         return Datos3;
     }
 
-    /*public int fecha1() {
+    public int fechapeli1() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        Date fechainicio = formato2.parse(ahorapeli);
+        Date fechafin2 = formato2.parse(ahorapeli2);
 
-        return can;
-    }*/
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leerpeli3()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fechapeli2() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+
+        Date fechainicio = formato2.parse(ahorapeli);
+        Date fechafin2 = formato2.parse(ahorapeli2);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leerpeli4()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fechapeli3() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        Date fechainicio = formato2.parse(ahorapeli);
+        Date fechafin2 = formato2.parse(ahorapeli2);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leerpeli5()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fechapeli4() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        Date fechainicio = formato2.parse(ahorapeli);
+        Date fechafin2 = formato2.parse(ahorapeli2);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leerpeli1()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public int fechapeli5() throws ParseException {
+        SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
+        Date fechainicio = formato2.parse(ahorapeli);
+        Date fechafin2 = formato2.parse(ahorapeli2);
+
+        int cantidad = 0;
+        try {
+            String temp;
+            BufferedReader bf2 = new BufferedReader(new FileReader("ComprasPeliculas.txt"));
+            int contador = 0;
+
+            temp = "";
+            String bfRead;
+
+            while ((bfRead = bf2.readLine()) != null) {
+                contador++;
+                temp = bfRead;
+                String lista = temp;
+                String[] lista1 = lista.split(";");
+                String fechaprin = lista1[5];
+                Date fechaprincipal = formato2.parse(fechaprin);
+                if (lista1[0].equals(leerpeli2()) & (fechaprincipal.before(fechafin2) || fechaprincipal.equals(fechafin2)) & (fechaprincipal.after(fechainicio) || fechaprincipal.equals(fechainicio))) {
+                    cantidad += Integer.parseInt(lista1[4]);
+                }
+            }
+            bf2.close();
+        } catch (IOException e) {
+            System.err.println("No se encontro el archivo" + e);
+        }
+
+        return cantidad;
+    }
+
+    public CategoryDataset cargarpelifecha() throws ParseException {
+        DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
+        Datos3.addValue(fechapeli1(), leerpeli3(), leerpeli3());
+        Datos3.addValue(fechapeli2(), leerpeli4(), leerpeli4());
+        Datos3.addValue(fechapeli3(), leerpeli5(), leerpeli5());
+        Datos3.addValue(fechapeli4(), leerpeli1(), leerpeli1());
+        Datos3.addValue(fechapeli5(), leerpeli2(), leerpeli2());
+
+        return Datos3;
+    }
+
 }

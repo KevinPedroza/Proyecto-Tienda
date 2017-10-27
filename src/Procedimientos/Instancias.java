@@ -15,6 +15,9 @@ import Interfaces.Elegir_usupeli;
 import Interfaces.EliminarDisco;
 import Interfaces.EliminarPelicula;
 import Interfaces.Fecha_Fin;
+import Interfaces.Fecha_Inicio;
+import Interfaces.Fechafin_Peli;
+import Interfaces.Fechaini_Peli;
 import Interfaces.LeerDisco;
 import Interfaces.LeerPelicula;
 import Interfaces.ListaCompras;
@@ -39,6 +42,7 @@ import javax.swing.JFrame;
  */
 public class Instancias extends JFrame {
 
+    //this method is gonna call all jframes in the interfaz package each public void is gonna call the name of the jframe that it has up there
     public void catalogomusica() {
         OpcionesCatalogoMusica catalogo = new OpcionesCatalogoMusica(this, true);
         catalogo.pack();
@@ -196,11 +200,32 @@ public class Instancias extends JFrame {
         ele.setVisible(true);
 
     }
-    
-    public void fechafin(){
-        Fecha_Fin fin = new Fecha_Fin(this,true);
+
+    public void fechafin() {
+        Fecha_Fin fin = new Fecha_Fin(this, true);
         fin.pack();
         fin.setVisible(true);
-    
+
     }
+
+    public void fechaini() {
+        Fecha_Inicio ini = new Fecha_Inicio(this, true);
+        ini.pack();
+        ini.setVisible(true);
+    }
+
+    public void fechaini_peli() {
+        Fechaini_Peli peli = new Fechaini_Peli(this, true);
+        peli.pack();
+        peli.setVisible(true);
+
+    }
+
+    public void fechafin_peli() {
+
+        Fechafin_Peli peli = new Fechafin_Peli(this, true);
+        peli.pack();
+        peli.setVisible(true);
+    }
+
 }

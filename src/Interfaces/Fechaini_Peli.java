@@ -1,11 +1,11 @@
 
 package Interfaces;
 
+import static Interfaces.Fecha_Inicio.calendario;
 import Procedimientos.Instancias;
 import java.awt.Component;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
@@ -13,18 +13,19 @@ import javax.swing.JOptionPane;
  *
  * @author Kevin
  */
-public class Fecha_Inicio extends javax.swing.JDialog {
+public class Fechaini_Peli extends javax.swing.JDialog {
 
     /**
-     * this jframe will let you choose a date, then to see the third report
+     * this jframe will let you choose the final date, then to see the sixth report 
      */
     Instancias insta = new Instancias();
 
-    public Fecha_Inicio(java.awt.Frame parent, boolean modal) {
+    public Fechaini_Peli(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setTitle("Fecha Inicio");
         this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -36,21 +37,10 @@ public class Fecha_Inicio extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        calendario = new com.toedter.calendar.JCalendar();
+        calendariopeli = new com.toedter.calendar.JCalendar();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        calendario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                calendarioMouseClicked(evt);
-            }
-        });
-        calendario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                calendarioKeyPressed(evt);
-            }
-        });
 
         jButton1.setText("Siguiente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,37 +54,36 @@ public class Fecha_Inicio extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(calendario, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(calendariopeli, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(calendariopeli, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public static String ahora2 = null;
+    public static String ahorapeli = null;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM/yyyy");
-        ahora2 = formato2.format(calendario.getDate());
-        if (calendario.getCalendar().get(Calendar.DAY_OF_MONTH) == 0) {
+        ahorapeli = formato2.format(calendariopeli.getDate());
+        if (calendariopeli.getCalendar().get(Calendar.DAY_OF_MONTH) == 0) {
             JOptionPane.showMessageDialog(null, "Ingrese un dia!");
-        }else if(calendario.getCalendar().get(Calendar.YEAR) != 2017){
+        } else if (calendariopeli.getCalendar().get(Calendar.YEAR) != 2017) {
             JOptionPane.showMessageDialog(null, "Ingrese el Año actual!");
-        }
-        
-        else {
-            Object preg = "La fecha seleccionada es: " + ahora2
+        } else {
+            Object preg = "La fecha seleccionada es: " + ahorapeli
                     + "\nDesea Modificarla? ";
             Object unComponentePadre = null;
             Object unIcono = null;
@@ -109,23 +98,16 @@ public class Fecha_Inicio extends javax.swing.JDialog {
 
             if (sele == 1) {
                 this.dispose();
-                insta.fechafin();
+                insta.fechafin_peli();
             }
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void calendarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calendarioKeyPressed
-
-    }//GEN-LAST:event_calendarioKeyPressed
-
-    private void calendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calendarioMouseClicked
-
-    }//GEN-LAST:event_calendarioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static com.toedter.calendar.JCalendar calendario;
+    private com.toedter.calendar.JCalendar calendariopeli;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

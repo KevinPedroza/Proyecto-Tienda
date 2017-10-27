@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaces;
 
 import java.text.DateFormat;
@@ -17,9 +13,9 @@ import javax.swing.JFrame;
 public class Menu extends JFrame {
 
     /**
-     * Creates new form Login
+     * this jframe will open the principal menu for you to navigate through the project
      *
-     * @param parent
+     *
      */
     Date fechaActual = new Date();
     DateFormat formatoHora = new SimpleDateFormat("HH:mm");
