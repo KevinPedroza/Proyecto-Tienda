@@ -1,4 +1,3 @@
-
 package Interfaces;
 
 import Archivos.ArchivoCompraDisco;
@@ -21,7 +20,8 @@ import javax.swing.JOptionPane;
 public class ProcesoCompraDisco extends javax.swing.JDialog {
 
     /**
-     * this jframe will let you buy the cds that you want with a limitation for payment
+     * this jframe will let you buy the cds that you want with a limitation for
+     * payment
      */
     procedimientodisco disco = new procedimientodisco();
     ArchivoCompraDisco compra = new ArchivoCompraDisco();
@@ -220,9 +220,12 @@ public class ProcesoCompraDisco extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
-        compra.Anadircompra();
-
+        if (cantidadiscos.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese una cantidad!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
+            compra.Anadircompra();
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

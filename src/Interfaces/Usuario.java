@@ -13,6 +13,7 @@ public class Usuario extends javax.swing.JDialog {
     /**
      * this jframe will let you login on the customer part to buy the cds or the movies
      */
+    Usuariocomdisco usu = new Usuariocomdisco();
     public Usuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -144,7 +145,7 @@ public class Usuario extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        Usuariocomdisco usu = new Usuariocomdisco();
+        
         usu.ingreusu();
     }//GEN-LAST:event_jButton2ActionPerformed
 

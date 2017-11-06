@@ -222,9 +222,12 @@ public class ProcesoCompraPelicula extends javax.swing.JDialog {
     }//GEN-LAST:event_cantidapeliculaKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
-        compra.Anadircompra();
-
+        if (cantidapelicula.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Ingrese una cantidad!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
+            compra.Anadircompra();
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -36,7 +36,7 @@ import java.util.Arrays;
  * @author Kevin
  */
 public class Usuariocomdisco extends JFrame {
-
+    
     AudioClip sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Bebe Rexha - In The Name Of Love (Official Video) (online-audio-converter.com).wav"));
     AudioClip sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Dua Lipa - Scared To Be Lonely (Official Video) (online-audio-converter.com).wav"));
     AudioClip sonido3 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/P!nk - What About Us (Shaun Barron Bootleg) (online-audio-converter.com).wav"));
@@ -45,28 +45,28 @@ public class Usuariocomdisco extends JFrame {
     public static String usuario;
     public static String correouser;
     ArchivoUsuario lo = new ArchivoUsuario();
-
+    
     public String[] leer() {
-
+        
         lo.crearlogin();
         String info = lo.obtener();
-
+        
         String[] posi = info.split(";");
-
+        
         return posi;
     }
-
+    
     public static boolean vacio() {
         boolean vacio = false;
-
+        
         try {
             FileReader fr = new FileReader("Usuarios.txt");
             BufferedReader bf = new BufferedReader(fr);
-
+            
             String sCadena = "";
             while ((sCadena = bf.readLine()) != null) {
                 vacio = true;
-
+                
             }
             bf.close();
             fr.close();
@@ -76,69 +76,70 @@ public class Usuariocomdisco extends JFrame {
             Logger.getLogger(ArchivosDiscos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return vacio;
-
+        
     }
-
+    
     public String obtenerusuaio() {
         String user = usunombre.getText();
         String usuario = null;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Usuarios.txt"));
-
+            
             temp = "";
             String bfRead;
-
+            
             while ((bfRead = bf2.readLine()) != null) {
-
+                
                 temp = bfRead;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
                 if (lista1[0].equals(user)) {
                     usuario = lista1[0];
                 }
-
+                
             }
             bf2.close();
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-
+        
         return usuario;
     }
-
+    
     public String obtenercontra() {
-        String user = usucontra.getText();
+        String con = usucontra.getText();
+        String user = usunombre.getText();
         String usuario = null;
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Usuarios.txt"));
-
+            
             temp = "";
             String bfRead;
-
+            
             while ((bfRead = bf2.readLine()) != null) {
-
+                
                 temp = bfRead;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
-                if (lista1[2].equals(user)) {
+                if (lista1[0].equals(user) & lista1[2].equals(con)) {
                     usuario = lista1[2];
                 }
-
+                
             }
             bf2.close();
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
-
+        
         return usuario;
     }
-
+    
     public void ingreusu() {
-
+        
         if (vacio() == true) {
-
+            
             try {
                 
                 String usu = obtenerusuaio();
@@ -158,9 +159,9 @@ public class Usuariocomdisco extends JFrame {
                     new Usuario(this, true).setVisible(true);
                 }
             } catch (java.lang.NullPointerException e) {
-
+                
             }
-
+            
         } else {
             JOptionPane.showMessageDialog(null, "No se encuentra en el Sistema o datos Incorrectos!");
             usunombre.setText("");
@@ -168,7 +169,7 @@ public class Usuariocomdisco extends JFrame {
             new Usuario(this, true).setVisible(true);
         }
     }
-
+    
     public void Cargarnombre() {
         String buscarname = buscarnombre.getText();
         String busautor = buscarautor.getText();
@@ -180,11 +181,11 @@ public class Usuariocomdisco extends JFrame {
         if (buscarnombre.getText().equals("") & buscarautor.getText().equals("") & buscarprecio.getText().equals("") & buscarprecio2.getText().equals("")) {
             vacio = true;
             JOptionPane.showMessageDialog(null, "Ingrese algún Parametro de busqueda!");
-
+            
         }
         if (vacio == false) {
             modelo.clear();
-
+            
             try {
                 precio1 = Integer.parseInt(busprecio);
                 precio2 = Integer.parseInt(busprecio2);
@@ -195,27 +196,27 @@ public class Usuariocomdisco extends JFrame {
             try {
                 String temp;
                 BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
-
+                
                 temp = "";
                 String bfRead;
                 while ((bfRead = bf2.readLine()) != null) {
                     temp = bfRead;
                     String lista = temp;
-
+                    
                     String[] lista1 = lista.split(";");
-
+                    
                     if (lista1[0].equalsIgnoreCase(buscarname) || lista1[1].equalsIgnoreCase(busautor) || (Integer.parseInt(lista1[4]) <= precio2 & Integer.parseInt(lista1[4]) >= precio1)) {
-
+                        
                         modelo.addElement(lista1[0]);
                         existe = true;
-
+                        
                     } else {
                         existe = false;
-
+                        
                     }
-
+                    
                 }
-
+                
                 bf2.close();
                 if (existe == false) {
                     JOptionPane.showMessageDialog(null, "No se encuentra el Disco en ese tipo de Parametro!");
@@ -224,23 +225,23 @@ public class Usuariocomdisco extends JFrame {
                 System.err.println("No se encontro el archivo" + e);
             }
         }
-
+        
     }
-
+    
     public void mostrarinfor() {
-
+        
         String nombre = jlistacompradisco.getSelectedValue();
-
+        
         ArrayList<String> nombres = new <String>ArrayList();
         ArrayList<String> autor = new <String>ArrayList();
         ArrayList<String> lista2 = new <String>ArrayList();
         ArrayList<String> precio = new <String>ArrayList();
-
+        
         int lNumeroLineas = 0;
         try {
             FileReader fr = new FileReader("Discos.txt");
             BufferedReader bf = new BufferedReader(fr);
-
+            
             String sCadena = "";
             while ((sCadena = bf.readLine()) != null) {
                 lNumeroLineas++;
@@ -252,12 +253,12 @@ public class Usuariocomdisco extends JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ArchivosDiscos.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         try {
             boolean existe = false;
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
-
+            
             temp = "";
             String bfRead;
             while ((bfRead = bf2.readLine()) != null) {
@@ -271,10 +272,10 @@ public class Usuariocomdisco extends JFrame {
                     precio.add(lista1[4]);
                     existe = true;
                 }
-
+                
             }
             bf2.close();
-
+            
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
@@ -284,23 +285,23 @@ public class Usuariocomdisco extends JFrame {
                 jtablecompradisco.setValueAt(autor.get(i), i, 1);
                 jtablecompradisco.setValueAt(precio.get(i), i, 2);
                 jtablecompradisco.setValueAt(lista2.get(i), i, 3);
-
+                
             }
         } catch (java.lang.ArrayIndexOutOfBoundsException e) {
         }
         if (jtablecompradisco.getRowCount() > lNumeroLineas) {
-
+            
             try {
                 DefaultTableModel temp2 = (DefaultTableModel) jtablecompradisco.getModel();
                 jtablecompradisco.getModel();
                 temp2.removeRow(temp2.getRowCount() - 1);
-
+                
             } catch (ArrayIndexOutOfBoundsException e) {
             }
         }
-
+        
     }
-
+    
     public void reproducirmusica() {
         if (jlistacompradisco.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(null, "Seleccione algún Disco para Reproducir!");
@@ -322,7 +323,7 @@ public class Usuariocomdisco extends JFrame {
             }
         }
     }
-
+    
     public void parar() {
         if (jlistacompradisco.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(null, "Seleccione algún Disco para Reproducir!");
@@ -344,5 +345,5 @@ public class Usuariocomdisco extends JFrame {
             }
         }
     }
-
+    
 }

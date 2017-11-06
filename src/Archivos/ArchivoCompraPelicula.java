@@ -52,7 +52,7 @@ public class ArchivoCompraPelicula {
                 temp = bfRead;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
-                if (lista1[0].equalsIgnoreCase(nomuser) & lista1[2].equalsIgnoreCase(contra)) {
+                if (lista1[0].equals(nomuser) & lista1[2].equals(contra)) {
                     cedula = lista1[1];
                     email = lista1[3];
                     repite = true;
@@ -64,7 +64,7 @@ public class ArchivoCompraPelicula {
             System.err.println("No se encontro el archivo" + e);
         }
 
-        if (repite) {
+        if (repite == true) {
             try {
                 String temp;
                 BufferedReader bf2 = new BufferedReader(new FileReader("Pre-Ordenes.txt"));
