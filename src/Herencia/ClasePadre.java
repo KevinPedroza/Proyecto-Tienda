@@ -5,6 +5,7 @@ package Herencia;
  * @author Kevin
  */
 public class ClasePadre {
+//this is the father class where the others son classes get the principal variables
 
     String Nombre;
     String Autor;

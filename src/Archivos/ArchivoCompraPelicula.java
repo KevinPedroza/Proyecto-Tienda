@@ -29,8 +29,9 @@ public class ArchivoCompraPelicula {
     ArchivoUsuario user = new ArchivoUsuario();
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     LocalDate ahora = LocalDate.now();
-    public void Anadircompra() {
 
+    public void Anadircompra() {
+        //this method will let you add a new buying to the file
         String nomuser = usuario;
         String contra = usucontra.getText();
         String cedula = null;
@@ -94,7 +95,7 @@ public class ArchivoCompraPelicula {
                     BufferedWriter bw;
 
                     bw = new BufferedWriter(new FileWriter("ComprasPeliculas.txt", true));
-                    bw.write(nombredisco + ";" + nomuser + ";" + cedula + ";" + email + ";" + cantidad + ";" +fmt.format(ahora)+"\n");
+                    bw.write(nombredisco + ";" + nomuser + ";" + cedula + ";" + email + ";" + cantidad + ";" + fmt.format(ahora) + "\n");
 
                     bw.close();
                 } catch (IOException ex) {
@@ -103,7 +104,6 @@ public class ArchivoCompraPelicula {
 
                 user.enviarcorreocmprapeli(email);
                 restarcantidad();
-                
 
             } catch (java.lang.NumberFormatException e) {
 
@@ -113,6 +113,7 @@ public class ArchivoCompraPelicula {
     }
 
     public static void eliminarpreorden() {
+        //this method will delete a pre-order when you buy a disc already writen on the file pre-ordenes.txt
         try {
             String temp;
             try (BufferedReader bf = new BufferedReader(new FileReader("Pre-Ordenes.txt"))) {
@@ -161,6 +162,7 @@ public class ArchivoCompraPelicula {
     public static String cantipeli;
 
     public static String cantidadisco() {
+        //this method will let you know the quantity of a disc
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Peliculas.txt"));
@@ -187,6 +189,7 @@ public class ArchivoCompraPelicula {
     }
 
     public static void restarcantidad() {
+        //this method will get few discs
         String can = cantidapelicula.getText();
         String can2 = cantidadisco();
         int cantidadtotal = Integer.parseInt(can2) - Integer.parseInt(can);

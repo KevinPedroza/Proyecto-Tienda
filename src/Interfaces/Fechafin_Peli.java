@@ -108,7 +108,7 @@ public class Fechafin_Peli extends javax.swing.JDialog {
 
             try {
                 Grafica3 = ChartFactory.createBarChart("Compras por Rango de Fecha",
-                        "Categorias", "Compras", re.cargarpelifecha(),
+                        "Total", "Compras", re.cargarpelifecha(),
                         PlotOrientation.HORIZONTAL, true, true, false);
             } catch (ParseException ex) {
 

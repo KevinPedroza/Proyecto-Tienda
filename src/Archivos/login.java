@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 public class login {
 
     public void crearlogin() {
+        //this method will create the login of the admi
         BufferedWriter bw;
         try {
             bw = new BufferedWriter(new FileWriter("Administrador.txt"));
@@ -32,6 +33,7 @@ public class login {
     }
 
     public String obtener() {
+        //this method will the information about the admi
         String lista = null;
         try {
             String temp;

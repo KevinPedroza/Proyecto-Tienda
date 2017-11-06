@@ -53,6 +53,7 @@ public class ArchivosDiscos {
     BufferedReader bf7;
 
     public static boolean revisarcat() {
+        //this method will check if a category is already on the file
         String cate = categorias.getSelectedItem().toString();
         boolean repite = false;
         try {
@@ -81,6 +82,7 @@ public class ArchivosDiscos {
     }
 
     public void AnadirDisco() {
+        // this method will add a new discs
         if (revisarcat() == true) {
             JOptionPane.showMessageDialog(null, "Esa Categoria ya esta en el Sistema!");
         } else {
@@ -122,7 +124,7 @@ public class ArchivosDiscos {
     }
 
     public void leerdisco() {
-
+        //this method will read all of the disc on the file
         int lNumeroLineas = 0;
         try {
             FileReader fr = new FileReader("Discos.txt");
@@ -198,7 +200,7 @@ public class ArchivosDiscos {
     }
 
     public void modificar() {
-
+        //this method will modify the disc that the admi wants to change
         try {
             String temp;
             BufferedReader bf = new BufferedReader(new FileReader("Discos.txt"));
@@ -336,6 +338,7 @@ public class ArchivosDiscos {
     }
 
     public String precio() {
+        //this method wil let you get the price of a disc
         String precio = null;
         try {
             String temp;
@@ -362,6 +365,7 @@ public class ArchivosDiscos {
     }
 
     public String obtenercorreo() {
+        //this method will get the email of a pre-order
 
         String can = null;
         try {
@@ -390,6 +394,7 @@ public class ArchivosDiscos {
     }
 
     public String obtenercantidad() {
+        //this method will get the quantity of a disc on the file pre-orders
         String can = null;
         try {
             String temp;
@@ -417,6 +422,7 @@ public class ArchivosDiscos {
     }
 
     public String obtenerusuario() {
+        //this method will get the user on the file pre-orders.txt
         String can = null;
         try {
             String temp;
@@ -444,6 +450,7 @@ public class ArchivosDiscos {
     }
 
     public String obtenernombrepreorden() {
+        //this method will get the name of the pre-order.
         String can = null;
         try {
             String temp;
@@ -468,6 +475,7 @@ public class ArchivosDiscos {
     }
 
     public void eliminardisco() {
+        //this method wil delete a disc that the admi wants to delete
         if (Jeliminar.isSelectionEmpty()) {
             beliminar.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Seleccione algún Elemento!");

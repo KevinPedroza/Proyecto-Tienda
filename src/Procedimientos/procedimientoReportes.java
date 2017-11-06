@@ -1099,6 +1099,7 @@ public class procedimientoReportes {
         return Datos3;
     }
 
+
     public CategoryDataset cargarpeli() {
         DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
         Datos3.addValue(userpeli(), leerpeli3(), leerpeli3());
@@ -1110,7 +1111,7 @@ public class procedimientoReportes {
         return Datos3;
     }
 
-    public int fechapeli1() throws ParseException {
+     public int fechapeli1() throws ParseException {
         SimpleDateFormat formato2 = new SimpleDateFormat("dd/MM");
         Date fechainicio = formato2.parse(ahorapeli);
         Date fechafin2 = formato2.parse(ahorapeli2);

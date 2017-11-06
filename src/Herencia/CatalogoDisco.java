@@ -10,7 +10,7 @@ package Herencia;
  * @author Kevin
  */
 public class CatalogoDisco extends ClasePadre {
-
+    //this method will have all the variables used to save information on the file as herency
     String ListaCancion;
 
     public CatalogoDisco(String Nombre, String Autor, String Categoria, String ListaCancion, int Precio, int cantidad) {

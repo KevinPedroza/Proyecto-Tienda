@@ -10,6 +10,8 @@ package Herencia;
  * @author Kevin
  */
 public class ClasePersona {
+
+    //this is the father class where the others son classes get the principal variables
     String Nombre;
     String Cedula;
     String Contraseña;

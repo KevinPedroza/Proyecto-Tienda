@@ -108,7 +108,7 @@ public class Fecha_Fin extends javax.swing.JDialog {
 
             try {
                 Grafica3 = ChartFactory.createBarChart("Compras por Rango de Fecha",
-                        "Categorias", "Compras", re.cargardiscofechas(),
+                        "Total", "Compras", re.cargardiscofechas(),
                         PlotOrientation.HORIZONTAL, true, true, false);
             } catch (ParseException ex) {
                 Logger.getLogger(Fecha_Fin.class.getName()).log(Level.SEVERE, null, ex);

@@ -44,6 +44,7 @@ public class ArchivoUsuario {
     public static String subject = "Registro";
 
     public void crearlogin() {
+        //this method creates the login
         BufferedWriter bw;
         try {
             bw = new BufferedWriter(new FileWriter("Usuarios.txt", true));
@@ -55,6 +56,7 @@ public class ArchivoUsuario {
     }
 
     public String obtener() {
+        //this method will let you the user to login 
         String lista = null;
         try {
             String temp;
@@ -75,6 +77,7 @@ public class ArchivoUsuario {
     }
 
     public static boolean revisaruser() {
+        //this method will let you know if a user is already registered on the file.
         String nom = formunombre.getText();
         boolean repite = false;
         try {
@@ -103,6 +106,7 @@ public class ArchivoUsuario {
     }
 
     public static void enviarcorreo() {
+        //this method will send emails when you pay or the admi change the quantity of a pre-orden 
         to = formucorreo.getText();
 
         try {
@@ -144,6 +148,7 @@ public class ArchivoUsuario {
     }
 
     public void enviarcorreocmpra(String email) {
+        //this method will send an email when the user get a new disc
         to = email;
         String subject = "Compra Exitosa!";
 
@@ -183,6 +188,7 @@ public class ArchivoUsuario {
     }
 
     public void enviarcorreocmprapeli(String email) {
+        //this method will send an email when the user get a new movie
         to = email;
         String subject = "Compra Exitosa!";
         try {
@@ -221,6 +227,7 @@ public class ArchivoUsuario {
     }
 
     public void AnadirUsuario() {
+        //this method will add a new user on the file usuarios.txt
         if (revisaruser() == true) {
             JOptionPane.showMessageDialog(null, "Ese Usuario ya esta en el Sistema!");
         } else {

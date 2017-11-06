@@ -10,6 +10,7 @@ package Herencia;
  * @author Kevin
  */
 public class Preorden {
+//this method will have all the variables used to save information on the file as herency
 
     String Usuario;
     String Nombre;

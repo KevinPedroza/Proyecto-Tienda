@@ -33,6 +33,7 @@ public class ArchivoPreordenes {
     
     Instancias insta = new Instancias();
     public String obtenercorreo(){
+        //this method will let you get the email that the user has.
         String correo = null;
         try {
             String temp;
@@ -60,6 +61,7 @@ public class ArchivoPreordenes {
     return correo;}
 
     public void AnadirPreordendisco() {
+        //this method will add a new pre-orden of a disc on the file.
         Preorden orden = new Preorden(usuario,nombre,tipodisco,preorden, obtenercorreo());
         try {
             
@@ -82,7 +84,7 @@ public class ArchivoPreordenes {
 
     }
     public void AnadirPreordenpelicula() {
-        
+        //this method will add a new pre-orden of a movie on the file.
         try {
             
 

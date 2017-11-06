@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * this method is to save information on the comprasdiscos.txt file, and it is information related to compact discs.
+ * 
+ * 
  */
 package Archivos;
 
@@ -33,7 +33,7 @@ public class ArchivoCompraDisco {
     LocalDate ahora = LocalDate.now();
 
     public void Anadircompra() {
-
+        //this method will let you add a new buying to the file
         String nomuser = usuario;
         String contra = usucontra.getText();
         String cedula = null;
@@ -119,6 +119,7 @@ public class ArchivoCompraDisco {
     public static String canti;
 
     public static String cantidadisco() {
+        //this method will let you know the quantity of a disc
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
@@ -145,6 +146,7 @@ public class ArchivoCompraDisco {
     }
 
     public static void restarcantidad() {
+        //this method will get few discs
         String can = cantidadiscos.getText();
         String can2 = cantidadisco();
         int cantidadtotal = Integer.parseInt(can2) - Integer.parseInt(can);
@@ -220,6 +222,7 @@ public class ArchivoCompraDisco {
     }
 
     public static void eliminarpreorden() {
+        //this method will delete a pre-order when you buy a disc already writen on the file pre-ordenes.txt
         try {
             String temp;
             try (BufferedReader bf = new BufferedReader(new FileReader("Pre-Ordenes.txt"))) {

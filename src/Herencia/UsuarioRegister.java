@@ -10,6 +10,7 @@ package Herencia;
  * @author Kevin
  */
 public class UsuarioRegister extends ClasePersona {
+//this method will have all the variables used to save information on the file as herency
 
     public UsuarioRegister(String Nombre, String Cedula, String Contraseña, String Correo) {
         super(Nombre, Cedula, Contraseña, Correo);
