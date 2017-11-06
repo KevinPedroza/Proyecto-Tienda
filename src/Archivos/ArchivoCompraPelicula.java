@@ -88,8 +88,7 @@ public class ArchivoCompraPelicula {
             }
             if (existe) {
                 eliminarpreorden();
-            } else {
-            }
+            } 
             try {
                 try {
                     BufferedWriter bw;

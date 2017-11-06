@@ -1,4 +1,3 @@
-
 package Interfaces;
 
 import Archivos.ArchivoCompraDisco;
@@ -21,7 +20,8 @@ import javax.swing.JOptionPane;
 public class ProcesoCompraPelicula extends javax.swing.JDialog {
 
     /**
-     * this jframe will let you buy many movies as you want and will do many things under the interface
+     * this jframe will let you buy many movies as you want and will do many
+     * things under the interface
      */
     ArchivoCompraPelicula compra = new ArchivoCompraPelicula();
     Instancias insta = new Instancias();
