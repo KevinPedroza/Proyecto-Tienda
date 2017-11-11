@@ -1,4 +1,3 @@
-
 package Interfaces;
 
 import static Archivos.ArchivoCompraPelicula.cantipeli;
@@ -19,7 +18,8 @@ import javax.swing.JOptionPane;
 public class CompraDisco extends javax.swing.JDialog {
 
     /**
-     * this jframe will let you buy a cd and then is gonna do all this under the interface talking about sending emails, and saving on the file
+     * this jframe will let you buy a cd and then is gonna do all this under the
+     * interface talking about sending emails, and saving on the file
      */
     public static DefaultListModel modelo;
 
@@ -280,6 +280,7 @@ public class CompraDisco extends javax.swing.JDialog {
 
     public String cantidad() {
         String cantidad = null;
+
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Discos.txt"));
@@ -293,17 +294,22 @@ public class CompraDisco extends javax.swing.JDialog {
                 temp = bfRead;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
-                if (jlistacompradisco.getSelectedValue().equals(lista1[0])) {
-                    cantidad = lista1[5];
+                try {
+                    if (jlistacompradisco.getSelectedValue().equals(lista1[0])) {
+                        cantidad = lista1[5];
 
+                    }
+                } catch (java.lang.NullPointerException e) {
                 }
             }
             bf2.close();
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
+
         return cantidad;
     }
+
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
@@ -311,20 +317,22 @@ public class CompraDisco extends javax.swing.JDialog {
 
             JOptionPane.showMessageDialog(null, "Seleccione un Disco para Comprar!");
         }
-        if (Integer.parseInt(cantidad()) <= 0) {
-            this.dispose();
-            disco.leercantidad();
-        } else {
-            this.dispose();
+        try {
+            if (Integer.parseInt(cantidad()) <= 0) {
+                this.dispose();
+                disco.leercantidad();
+            } else {
+                this.dispose();
 
-            insta.procesocomdisco();
+                insta.procesocomdisco();
+            }
+        } catch (java.lang.NumberFormatException e) {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel alabel;

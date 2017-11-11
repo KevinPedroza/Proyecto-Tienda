@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Procedimientos;
+//this class will have all the methods related to buy movies.
 
 import Archivos.ArchivosDiscos;
 import static Interfaces.CompraPelicula.busaupeli;
@@ -32,6 +29,7 @@ import javax.swing.table.DefaultTableModel;
 public class Usuariocompeli {
 
     public void Cargarnombre() {
+        //this method will charge the names of the movies according to the parameters
         String buscarname = busnombrepeli.getText();
         String busautor = busaupeli.getText();
         String busprecio = precio1.getText();
@@ -85,6 +83,7 @@ public class Usuariocompeli {
     }
 
     public void mostrarinfor() {
+        //this method will show the information of a movie according to what the customer selected.
 
         String nombre = jlistapelicula.getSelectedValue();
 
@@ -156,6 +155,7 @@ public class Usuariocompeli {
     }
 
     public void reproducirvideo() throws IOException {
+        //this method will play the videos that the customers selected.
         if (jlistapelicula.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(null, "Seleccione una Pelicula para Reproducir!");
         } else {

@@ -1,5 +1,5 @@
 package Procedimientos;
-
+//this method will get the informatio to the show the reports
 import static Interfaces.Elegir_Usuario.listausuario;
 import static Interfaces.Elegir_Usuario.modelousu;
 import static Interfaces.Elegir_usupeli.listapeliuser;
@@ -292,6 +292,10 @@ public class procedimientoReportes {
 
         return cantidad;
     }
+    /*
+        all the methods called leer1 till leer5 are to get the name of the cds and the others methods called cantidad1 till cantidad5
+        are to get the quantity of the different songs for each other.
+    */
 
     public String leerpeli1() {
         String nombredisco = "";
@@ -562,7 +566,10 @@ public class procedimientoReportes {
 
         return cantidad;
     }
-
+    /*
+        all the methods called leerpeli1 till leerpeli5 are to get the name of the movies and the others methods called cantidadpel1 till cantidadpeli5
+        are to get the quantity of the different movies for each other.
+    */
     public void llenar_list() {
         try {
             String temp;
@@ -588,6 +595,7 @@ public class procedimientoReportes {
     }
 
     public void llenar_listpeli() {
+        //this method will show the users that have been registered on the file.
         try {
             String temp;
             BufferedReader bf2 = new BufferedReader(new FileReader("Usuarios.txt"));
@@ -716,6 +724,7 @@ public class procedimientoReportes {
                 }
             }
             bf2.close();
+            
         } catch (IOException e) {
             System.err.println("No se encontro el archivo" + e);
         }
@@ -751,7 +760,10 @@ public class procedimientoReportes {
 
         return cantidad;
     }
-
+/*
+    this methods from usercanti1 till usercanti5 are to get the quantity of each gender and user of cds.
+    
+    */
     public int userpeli() {
 
         String nombre = listapeliuser.getSelectedValue();
@@ -901,8 +913,12 @@ public class procedimientoReportes {
         return cantidad;
 
     }
-
+/*
+    this methods from userpeli1 till userpeli5 are to get the quantity of each gender and user of movies.
+    
+    */
     public CategoryDataset cargardisco() {
+        //this method will charge the information on the graphic table
         DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
         Datos3.addValue(usercanti(), leer4(), leer4());
         Datos3.addValue(usercanti2(), leer2(), leer2());
@@ -1087,8 +1103,14 @@ public class procedimientoReportes {
 
         return cantidad;
     }
+    
+    /*
+     this methods from fecha1 till fecha5 are to get the information about the gender and according to the admi introduced as a date of beggining and end
+    
+    */
 
     public CategoryDataset cargardiscofechas() throws ParseException {
+        //this method will show the information about what the admi introduced as a date of beggining and end
         DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
         Datos3.addValue(fecha1(), leer4(), leer4());
         Datos3.addValue(fecha2(), leer2(), leer2());
@@ -1101,6 +1123,7 @@ public class procedimientoReportes {
 
 
     public CategoryDataset cargarpeli() {
+        //this method will show the information on the graphic table abotut movies 
         DefaultCategoryDataset Datos3 = new DefaultCategoryDataset();
         Datos3.addValue(userpeli(), leerpeli3(), leerpeli3());
         Datos3.addValue(userpeli2(), leerpeli4(), leerpeli4());

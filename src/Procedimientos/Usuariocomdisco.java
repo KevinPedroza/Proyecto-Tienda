@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Procedimientos;
 
+package Procedimientos;
+//this class will get all methods for the customer buy a compac disc
 import Archivos.ArchivosDiscos;
 import Archivos.ArchivoUsuario;
 import static Interfaces.CompraDisco.buscarautor;
@@ -37,17 +33,32 @@ import java.util.Arrays;
  */
 public class Usuariocomdisco extends JFrame {
     
-    AudioClip sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Bebe Rexha - In The Name Of Love (Official Video) (online-audio-converter.com).wav"));
-    AudioClip sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Dua Lipa - Scared To Be Lonely (Official Video) (online-audio-converter.com).wav"));
-    AudioClip sonido3 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/P!nk - What About Us (Shaun Barron Bootleg) (online-audio-converter.com).wav"));
-    AudioClip sonido4 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Jason Derulo - Swalla (feat. Nicki Minaj Ty Dolla $ign) (Official Music Video) (online-audio-converter.com).wav"));
-    AudioClip sonido5 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/La Tierra Canta - Barak (letra)_3P6KiEY_zA0_youtube (online-audio-converter.com).wav"));
+    //all of these contains all the addresses of the songs for me to play it.
+    AudioClip sonido;
+    AudioClip sonido2;
+    AudioClip sonido3;
+    AudioClip sonido4;
+    AudioClip sonido5;
     public static String usuario;
     public static String correouser;
     ArchivoUsuario lo = new ArchivoUsuario();
-    
+    public void sonido(){
+        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Bebe Rexha - In The Name Of Love (Official Video) (online-audio-converter.com).wav"));
+    }
+    public void sonido2(){
+        sonido2 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Martin Garrix Dua Lipa - Scared To Be Lonely (Official Video) (online-audio-converter.com).wav"));
+    }
+    public void sonido3(){
+        sonido3 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/P!nk - What About Us (Shaun Barron Bootleg) (online-audio-converter.com).wav"));
+    }
+    public void sonido4(){
+        sonido4 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/Jason Derulo - Swalla (feat. Nicki Minaj Ty Dolla $ign) (Official Music Video) (online-audio-converter.com).wav"));
+    }
+    public void sonido5(){
+    sonido5 = java.applet.Applet.newAudioClip(getClass().getResource("/Canciones/La Tierra Canta - Barak (letra)_3P6KiEY_zA0_youtube (online-audio-converter.com).wav"));
+    }
     public String[] leer() {
-        
+        //this method will read if the file contains information
         lo.crearlogin();
         String info = lo.obtener();
         
@@ -57,6 +68,7 @@ public class Usuariocomdisco extends JFrame {
     }
     
     public static boolean vacio() {
+        //this method will verify if there is information on the file
         boolean vacio = false;
         
         try {
@@ -80,6 +92,7 @@ public class Usuariocomdisco extends JFrame {
     }
     
     public String obtenerusuaio() {
+        //this method will get the user that the customer is getting input
         String user = usunombre.getText();
         String usuario = null;
         try {
@@ -108,6 +121,7 @@ public class Usuariocomdisco extends JFrame {
     }
     
     public String obtenercontra() {
+        //this method will get the password that the user is getting input.
         String con = usucontra.getText();
         String user = usunombre.getText();
         String usuario = null;
@@ -137,6 +151,7 @@ public class Usuariocomdisco extends JFrame {
     }
     
     public void ingreusu() {
+        //this method will verify if the customer is introducing a correct password and username.
         
         if (vacio() == true) {
             
@@ -171,6 +186,7 @@ public class Usuariocomdisco extends JFrame {
     }
     
     public void Cargarnombre() {
+        //this method will get the name of the song according to the parameters that the customer introduces it.
         String buscarname = buscarnombre.getText();
         String busautor = buscarautor.getText();
         String busprecio = buscarprecio.getText();
@@ -229,7 +245,7 @@ public class Usuariocomdisco extends JFrame {
     }
     
     public void mostrarinfor() {
-        
+        //this method will show the information that customer is introducing on the jtable
         String nombre = jlistacompradisco.getSelectedValue();
         
         ArrayList<String> nombres = new <String>ArrayList();
@@ -303,44 +319,56 @@ public class Usuariocomdisco extends JFrame {
     }
     
     public void reproducirmusica() {
+        //this method will play the songs that the customer wants to reproduce
         if (jlistacompradisco.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(null, "Seleccione algún Disco para Reproducir!");
         } else {
             if (jtablecompradisco.getValueAt(0, 3).equals("Martin Garrix  Bebe Rexha")) {
+                sonido();
                 sonido.play();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("Martin Garrix  Dua Lipa")) {
+                sonido2();
                 sonido2.play();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("P!nk-What About Us")) {
+                sonido3();
                 sonido3.play();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("Jason Derulo - Swalla")) {
+                sonido4();
                 sonido4.play();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("La Tierra Canta - Barak")) {
+                sonido5();
                 sonido5.play();
             }
         }
     }
     
     public void parar() {
+        //this method will stop the songs that the customer wants
         if (jlistacompradisco.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(null, "Seleccione algún Disco para Reproducir!");
         } else {
             if (jtablecompradisco.getValueAt(0, 3).equals("Martin Garrix  Bebe Rexha")) {
+                
                 sonido.stop();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("Martin Garrix  Dua Lipa")) {
+                
                 sonido2.stop();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("P!nk-What About Us")) {
+                
                 sonido3.stop();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("Jason Derulo - Swalla")) {
+                
                 sonido4.stop();
             }
             if (jtablecompradisco.getValueAt(0, 3).equals("La Tierra Canta - Barak")) {
+                
                 sonido5.stop();
             }
         }

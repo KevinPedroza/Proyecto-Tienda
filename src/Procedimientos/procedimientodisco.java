@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Procedimientos;
 
+package Procedimientos;
+//this class will have all the methods to buy the cds
 import Archivos.ArchivoPreordenes;
 import static Interfaces.CompraDisco.jlistacompradisco;
 import static Interfaces.EliminarDisco.Jeliminar;
@@ -29,6 +25,7 @@ public class procedimientodisco extends JFrame {
     Instancias insta = new Instancias();
 
     public void leercantidad() {
+        //this method will read the quantity of a cd selected
         String canti = null;
         try {
             String temp;
@@ -77,6 +74,7 @@ public class procedimientodisco extends JFrame {
     }
 
     public void obtenerprecio(int cantidad) {
+        //this method will get the price according to the cd selected
         String can = null;
         try {
             String temp;

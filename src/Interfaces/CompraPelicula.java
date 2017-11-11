@@ -1,4 +1,3 @@
-
 package Interfaces;
 
 import static Archivos.ArchivoCompraPelicula.cantipeli;
@@ -21,7 +20,8 @@ import javax.swing.JOptionPane;
 public class CompraPelicula extends javax.swing.JDialog {
 
     /**
-     * this jframe will let you buy a movie and it is gonna do all things under the interface
+     * this jframe will let you buy a movie and it is gonna do all things under
+     * the interface
      */
     public static DefaultListModel modelopeli;
     Usuariocompeli table = new Usuariocompeli();
@@ -281,9 +281,12 @@ public class CompraPelicula extends javax.swing.JDialog {
                 temp = bfRead;
                 String lista = temp;
                 String[] lista1 = lista.split(";");
-                if (jlistapelicula.getSelectedValue().equals(lista1[0])) {
-                    cantida = lista1[4];
+                try {
+                    if (jlistapelicula.getSelectedValue().equals(lista1[0])) {
+                        cantida = lista1[4];
 
+                    }
+                } catch (java.lang.NullPointerException e) {
                 }
             }
             bf2.close();
@@ -298,6 +301,7 @@ public class CompraPelicula extends javax.swing.JDialog {
 
             JOptionPane.showMessageDialog(null, "Seleccione una Pelicula para Comprar!");
         }
+        try{
         if (Integer.parseInt(cantidad()) <= 0) {
             this.dispose();
             peli.leercantidad();
@@ -305,7 +309,7 @@ public class CompraPelicula extends javax.swing.JDialog {
             this.dispose();
 
             insta.procesopeli();
-        }
+        }}catch(java.lang.NumberFormatException e){}
     }//GEN-LAST:event_jButton5ActionPerformed
 
 

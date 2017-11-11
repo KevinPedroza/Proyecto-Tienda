@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Procedimientos;
+//this class will have all the methods related to the administrator things.
 
 import static Archivos.ArchivoUsuario.password;
 import static Archivos.ArchivoUsuario.user;
@@ -67,6 +64,7 @@ public class admi extends JFrame {
     public static DefaultListModel modelo;
 
     public String[] leer() {
+        //this method will get the information from the class Login
         login lo = new login();
         lo.crearlogin();
         String info = lo.obtener();
@@ -77,7 +75,7 @@ public class admi extends JFrame {
     }
 
     public void ingre() {
-
+    //this method will verify if the customer introduced the password and the user name correctly
         String[] info = leer();
         String usu = info[0];
         String contra = info[1];
@@ -99,6 +97,7 @@ public class admi extends JFrame {
     }
 
     public void Cargar() {
+        //this method will charge the name of the songs to the jlist
         modelo = new DefaultListModel();
         modelo.clear();
         try {
@@ -126,6 +125,7 @@ public class admi extends JFrame {
     }
 
     public void Cargar2() {
+        //this method will get the information to delete the cd. 
         modelo = new DefaultListModel();
         modelo.clear();
         try {
@@ -153,6 +153,7 @@ public class admi extends JFrame {
     }
 
     public void cargardatos() {
+        //this method will get the information to modify the cds
         String nombre = Jlist.getSelectedValue();
         boolean esta = false;
         try {
@@ -190,6 +191,7 @@ public class admi extends JFrame {
     }
 
     public void elegircategoriapeli() {
+        //this method will choose the gender of the movie automatically 
 
         if (categoriapeli.getSelectedItem().equals("Terror")) {
             nombrepeli.addItem("IT");
@@ -216,7 +218,7 @@ public class admi extends JFrame {
     }
 
     public void elegircategoriaDisco() {
-
+        //this method will choose the gender of the cd automatically 
         if (categorias.getSelectedItem().equals("Merengue")) {
 
             listascanciones.setSelectedItem("Jason Derulo - Swalla");
@@ -242,6 +244,7 @@ public class admi extends JFrame {
     }
 
     public void cargardatosmodipeli() {
+        //this method will get the information to modify the movies
         String nombre = jmodipeli.getSelectedValue();
         boolean esta = false;
         try {
@@ -279,6 +282,7 @@ public class admi extends JFrame {
     }
 
     public void Cargarmodifica2() {
+        //this method will the name of the movie to show it to the admi
         modelo = new DefaultListModel();
         modelo.clear();
         try {
@@ -306,6 +310,7 @@ public class admi extends JFrame {
     }
 
     public void Cargarmodifica3() {
+        //this method will get the name of the movie to delete it
         modelo = new DefaultListModel();
         modelo.clear();
         try {
@@ -333,6 +338,7 @@ public class admi extends JFrame {
     }
 
     public void listacomprasdisco() {
+        //this method will the cds that have been bought.
         int lNumeroLineas = 0;
         try {
             FileReader fr = new FileReader("ComprasDiscos.txt");
@@ -408,6 +414,7 @@ public class admi extends JFrame {
     }
 
     public void listacompraspeli() {
+        //this method will get the information of the movies that have been bought
         int lNumeroLineas = 0;
         try {
             FileReader fr = new FileReader("ComprasPeliculas.txt");
@@ -483,6 +490,7 @@ public class admi extends JFrame {
     }
 
     public void listapreordenes() {
+       //this method will get the information of the pre-orders that have been bought 
         int lNumeroLineas = 0;
         try {
             FileReader fr = new FileReader("Pre-Ordenes.txt");
@@ -552,6 +560,7 @@ public class admi extends JFrame {
     }
     
     public void enviarcorreopreorden(String correo,String disco,String tipodisco,String cantidad, String total) {
+        //this method will sends emails in different classes that they need it
         String to = correo;
         String subject = "Ya llego el Articulo Solicitado";
         try {

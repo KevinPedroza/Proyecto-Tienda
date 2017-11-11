@@ -223,7 +223,7 @@ public class ProcesoCompraDisco extends javax.swing.JDialog {
         if (cantidadiscos.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese una cantidad!");
         } else {
-            JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!");
+            JOptionPane.showMessageDialog(null, "Espere un momento mientras se envia una notificación de su Compra por Email!\n Cuando este completado se le notificara para que pueda Continuar!");
             compra.Anadircompra();
         }
 

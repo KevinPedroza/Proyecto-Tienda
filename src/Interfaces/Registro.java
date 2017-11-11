@@ -1,4 +1,3 @@
-
 package Interfaces;
 
 import Archivos.ArchivoUsuario;
@@ -143,12 +142,11 @@ public class Registro extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Espere un Momento mientras realiazamos el Registro...");
+        JOptionPane.showMessageDialog(null, "Espere un Momento mientras realiazamos el Registro... \n Cuando este completado se le notificara para que pueda Continuar!");
         ArchivoUsuario user = new ArchivoUsuario();
         user.AnadirUsuario();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

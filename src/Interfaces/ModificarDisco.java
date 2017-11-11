@@ -1,4 +1,3 @@
-
 package Interfaces;
 
 import Archivos.ArchivosDiscos;
@@ -12,8 +11,12 @@ import Procedimientos.admi;
 public class ModificarDisco extends javax.swing.JDialog {
 
     /**
-     * this jframe will let you modify all the information about the cds on the file
+     * this jframe will let you modify all the information about the cds on the
+     * file
      */
+    admi ad = new admi();
+    Instancias insta = new Instancias();
+
     public ModificarDisco(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -173,7 +176,7 @@ public class ModificarDisco extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
-        Instancias insta = new Instancias();
+
         insta.catalogomusica();
 
 
@@ -188,12 +191,12 @@ public class ModificarDisco extends javax.swing.JDialog {
         modilistas.setSelectedIndex(0);
         modiprecio.setText("");
         modicantidad.setText("");
-        admi ad = new admi();
+
         ad.Cargar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void JlistValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_JlistValueChanged
-        admi ad = new admi();
+
         ad.cargardatos();
     }//GEN-LAST:event_JlistValueChanged
 
